@@ -1,6 +1,11 @@
-import { Button, Heading, Paragraph, Tag } from '@/components';
+'use client';
+
+import { Button, Heading, Paragraph, Rating, Tag } from '@/components';
+import { useState } from 'react';
 
 export default function Home() {
+  const [rating, setRating] = useState(0);
+
   return (
     <div>
       <Heading type="h1">h1 title</Heading>
@@ -29,6 +34,11 @@ export default function Home() {
         <Tag color="gray">in</Tag>
         <Tag color="green">in</Tag>
         <Tag color="primary">in</Tag>
+        <Rating
+          isEditable={true}
+          initialRating={rating}
+          setRating={(n) => setRating(n)}
+        />
       </div>
     </div>
   );
