@@ -5,4 +5,12 @@ export default {
     'stylelint-order-config-standard',
   ],
   plugins: ['stylelint-order'],
+  rules: {
+    'declaration-block-no-redundant-longhand-properties': [
+      true,
+      {
+        ignoreShorthands: ['grid-template'],
+      },
+    ],
+  },
 };
