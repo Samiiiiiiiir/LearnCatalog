@@ -6,9 +6,9 @@ import styles from './footer.module.scss';
 interface FooterProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
 
-export const Footer = ({ className }: FooterProps) => {
+export const Footer = ({ className, ...props }: FooterProps) => {
   return (
-    <footer className={clsx(styles.footer, className)}>
+    <footer className={clsx(styles.footer, className)} {...props}>
       <span>
         © {new Date().getFullYear()} Coursera Inc. All rights reserved.
       </span>

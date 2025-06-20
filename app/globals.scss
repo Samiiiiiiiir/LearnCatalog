@@ -1,5 +1,6 @@
 :root {
-  --color-primary: #447c2b;
+  // Colors
+  --color-primary: #0056d2;
   --color-secondary: #f5f6f8;
   --color-border: #ebebeb;
   --color-dark: #3b434e;
@@ -7,6 +8,8 @@
   --color-red: #fc836d;
   --color-green: #1dc37e;
   --color-green-light: #c8f8e4;
+
+  // Transition
   --transition-duration: 0.25s;
 }
 
@@ -30,4 +33,8 @@ a {
   text-decoration: none;
 
   color: inherit;
+}
+
+ul {
+  list-style-type: none;
 }

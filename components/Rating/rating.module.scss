@@ -6,6 +6,10 @@
 
   span {
     outline-offset: 2px;
+
+    svg {
+      transition-duration: var(--transition-duration);
+    }
   }
 }
 

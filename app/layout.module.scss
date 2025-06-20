@@ -10,7 +10,7 @@
     'footer';
 
   @media (width >= 768px) {
-    grid-template-columns: auto 280px minmax(auto, 1200px) auto;
+    grid-template-columns: auto 17.5rem minmax(auto, 75rem) auto;
     grid-template-rows: 1fr auto;
     grid-template-areas:
       '. sidebar main .'
