@@ -12,6 +12,7 @@ export default {
         ignoreShorthands: ['grid-template'],
       },
     ],
-    'selector-class-pattern': null,
+    'selector-class-pattern': false,
+    'no-descending-specificity': false,
   },
 };

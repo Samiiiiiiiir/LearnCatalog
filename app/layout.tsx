@@ -9,7 +9,6 @@ import styles from './layout.module.scss';
 const notoSans = Noto_Sans({
   weight: ['300', '400', '600', '700'],
   subsets: ['latin'],
-  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -23,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={notoSans.className}>
+    <html lang="en" className={notoSans.className}>
+      <body>
         <div className={styles.layout}>
           <Header className={styles.header} />
           <Sidebar className={styles.sidebar} />

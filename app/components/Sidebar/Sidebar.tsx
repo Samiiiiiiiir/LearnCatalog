@@ -1,18 +1,14 @@
 import { Menu } from '@/app/components/Menu/Menu';
-import { API } from '@/constants/api';
+import { API } from '@/helpers/api';
+import { FirstLevelCategoryId } from '@/helpers/firstLevelCategories';
 import { IMenuItem } from '@/types/MenuItem';
 import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import styles from './sidebar.module.scss';
+import { Logo } from '@/components';
 
 interface SidebarProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
-
-export enum FirstLevelCategoryId {
-  Courses,
-  Services,
-  Books,
-  Products,
-}
 
 export const Sidebar = async ({ className, ...props }: SidebarProps) => {
   const data = await Promise.all([
@@ -20,10 +16,10 @@ export const Sidebar = async ({ className, ...props }: SidebarProps) => {
     getMenu(FirstLevelCategoryId.Services),
   ]);
 
-  console.log('data', data);
-
   return (
-    <aside className={clsx(className)} {...props}>
+    <aside className={clsx(styles.sidebar, className)} {...props}>
+      <Logo />
+      <div>Search bar</div>
       <Menu data={data} />
     </aside>
   );
@@ -44,8 +40,7 @@ const getMenu = async (category: FirstLevelCategoryId) => {
     const data: IMenuItem[] = await res.json();
 
     return data.map((i) => ({ ...i, isOpen: false })) as IMenuItem[];
-  } catch (e) {
-    console.log(e);
+  } catch {
     return [];
   }
 };

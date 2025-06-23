@@ -10,7 +10,7 @@
     'footer';
 
   @media (width >= 768px) {
-    grid-template-columns: auto 17.5rem minmax(auto, 75rem) auto;
+    grid-template-columns: auto 17.5rem minmax(auto, 76.5rem) auto;
     grid-template-rows: 1fr auto;
     grid-template-areas:
       '. sidebar main .'
@@ -31,15 +31,14 @@
 .sidebar {
   grid-area: sidebar;
 
-  display: none;
-
-  @media (width >= 768px) {
-    display: block;
+  @media (width <= 768px) {
+    display: none;
   }
 }
 
 .main {
   grid-area: main;
+  padding-inline: 12px;
 }
 
 .footer {
