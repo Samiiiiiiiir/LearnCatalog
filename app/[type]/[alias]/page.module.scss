@@ -1,8 +1,8 @@
 .page {
-  padding-block: 2.5rem;
+  padding-top: 2.5rem;
 }
 
-.pageTitle {
+.mainTitle {
   display: grid;
   grid-template-columns: auto 1fr auto;
   justify-items: start;
@@ -16,5 +16,41 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  margin-bottom: 1.75rem;
+}
+
+.seoText {
+  padding-top: 1.875rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  p,
+  li {
+    margin-bottom: 0.125rem;
+  }
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 0.375rem;
+  }
+  h1 {
+    font-size: 1.625rem;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
 }

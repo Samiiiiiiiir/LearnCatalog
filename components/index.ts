@@ -7,3 +7,5 @@ export * from './Logo/Logo';
 export * from './VacancyStats/VacancyStats';
 export * from './Card/Card';
 export * from './FormattedPrice/FormattedPrice';
+export * from './Advantages/Advantages';
+export * from './Section/Section';

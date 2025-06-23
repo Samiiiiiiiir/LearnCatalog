@@ -12,16 +12,16 @@ export interface ITopPage {
   alias: string;
   title: string;
   category: string;
-  seoText: string;
   tagsTitle: string;
   metaTitle: string;
   metaDescription: string;
   firstCategory: TopLevelCategory;
-  advantages: Advantage[];
   createdAt: Date;
   updatedAt: Date;
   __v: number;
-  hh: Hh;
+  advantages?: Advantage[];
+  seoText?: string;
+  hh?: Hh;
 }
 
 export interface Advantage {

@@ -1,4 +1,11 @@
-import { Heading, Tag, VacancyStats } from '@/components';
+import {
+  Advantages,
+  Heading,
+  Paragraph,
+  Section,
+  Tag,
+  VacancyStats,
+} from '@/components';
 import { API } from '@/helpers/api';
 import { firstLevelCategories } from '@/helpers/firstLevelCategories';
 import { IMenuItem } from '@/types/MenuItem';
@@ -7,6 +14,8 @@ import { ITopPage } from '@/types/TopPage';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import styles from './page.module.scss';
+import clsx from 'clsx';
+import parse from 'html-react-parser';
 
 interface CatalogProps {
   params: Promise<{ alias: string; type: string }>;
@@ -38,27 +47,60 @@ export default async function Catalog({ params }: CatalogProps) {
 
   return (
     <div className={styles.page}>
-      <div className={styles.pageTitle}>
-        <Heading type="h1">{pageData.title}</Heading>
-        {products && <Tag color="gray">{products.length}</Tag>}
-        <span>Sort component</span>
-      </div>
-      <div>
-        {products.map((p) => (
-          <div key={p._id}>{p.title}</div>
-        ))}
-      </div>
-      <div className={styles.linkedinTitle}>
-        <Heading type="h2">Jobs - {pageData.category}</Heading>
-        <Tag color="blue">LinkedIn</Tag>
-      </div>
+      <Section>
+        <div className={styles.mainTitle}>
+          <Heading type="h1">{pageData.title}</Heading>
+          {products && <Tag color="gray">{products.length}</Tag>}
+          <span>Sort component</span>
+        </div>
+        <div>
+          {products.map((p) => (
+            <div key={p._id}>{p.title}</div>
+          ))}
+        </div>
+      </Section>
       {type == 'courses' && (
-        <VacancyStats
-          count={pageData.hh.count}
-          juniorSalary={pageData.hh.juniorSalary}
-          middleSalary={pageData.hh.middleSalary}
-          seniorSalary={pageData.hh.seniorSalary}
-        />
+        <>
+          <Section>
+            <div className={clsx(styles.linkedinTitle, styles.pageTitle)}>
+              <Heading type="h2">Jobs - {pageData.category}</Heading>
+              <Tag color="blue">LinkedIn</Tag>
+            </div>
+            {pageData.hh && (
+              <VacancyStats
+                count={pageData.hh.count}
+                juniorSalary={pageData.hh.juniorSalary}
+                middleSalary={pageData.hh.middleSalary}
+                seniorSalary={pageData.hh.seniorSalary}
+              />
+            )}
+          </Section>
+          {pageData.advantages && pageData.advantages.length > 0 && (
+            <Section>
+              <Heading type="h2" className={styles.pageTitle}>
+                Advantages
+              </Heading>
+              <Advantages list={pageData.advantages} />
+              {pageData.seoText && (
+                <Paragraph size="lg" className={styles.seoText}>
+                  {parse(pageData.seoText)}
+                </Paragraph>
+              )}
+            </Section>
+          )}
+          <Section>
+            <Heading type="h2" className={styles.pageTitle}>
+              Skills acquired
+            </Heading>
+            <div className={styles.skills}>
+              {pageData.tags.map((t) => (
+                <Tag key={t} color="primary">
+                  {t}
+                </Tag>
+              ))}
+            </div>
+          </Section>
+        </>
       )}
     </div>
   );

@@ -8,7 +8,7 @@ import styles from './layout.module.scss';
 
 const notoSans = Noto_Sans({
   weight: ['300', '400', '600', '700'],
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
 });
 
 export const metadata: Metadata = {
