@@ -1,11 +1,4 @@
-import {
-  Advantages,
-  Heading,
-  Paragraph,
-  Section,
-  Tag,
-  VacancyStats,
-} from '@/components';
+import { Advantages, Heading, Section, Tag, VacancyStats } from '@/components';
 import { API } from '@/helpers/api';
 import { firstLevelCategories } from '@/helpers/firstLevelCategories';
 import { IMenuItem } from '@/types/MenuItem';
@@ -16,6 +9,8 @@ import React from 'react';
 import styles from './page.module.scss';
 import clsx from 'clsx';
 import parse from 'html-react-parser';
+
+import { Products } from './components/Products/Products';
 
 interface CatalogProps {
   params: Promise<{ alias: string; type: string }>;
@@ -47,18 +42,7 @@ export default async function Catalog({ params }: CatalogProps) {
 
   return (
     <div className={styles.page}>
-      <Section>
-        <div className={styles.mainTitle}>
-          <Heading type="h1">{pageData.title}</Heading>
-          {products && <Tag color="gray">{products.length}</Tag>}
-          <span>Sort component</span>
-        </div>
-        <div>
-          {products.map((p) => (
-            <div key={p._id}>{p.title}</div>
-          ))}
-        </div>
-      </Section>
+      <Products title={pageData.title} items={products} />
       {type == 'courses' && (
         <>
           <Section>
@@ -82,9 +66,7 @@ export default async function Catalog({ params }: CatalogProps) {
               </Heading>
               <Advantages list={pageData.advantages} />
               {pageData.seoText && (
-                <Paragraph size="lg" className={styles.seoText}>
-                  {parse(pageData.seoText)}
-                </Paragraph>
+                <div className={styles.seoText}>{parse(pageData.seoText)}</div>
               )}
             </Section>
           )}

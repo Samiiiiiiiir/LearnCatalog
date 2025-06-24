@@ -1,0 +1,66 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  transition-duration: var(--transition-duration);
+  text-wrap: nowrap;
+
+  border: none;
+  background-color: transparent;
+
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  padding-block: 0.25rem;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 0;
+    height: 0.125rem;
+
+    content: '';
+    transition-duration: var(--transition-duration);
+
+    background-color: currentcolor;
+  }
+
+  &:hover {
+    color: var(--color-primary);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.active {
+  color: var(--color-primary);
+
+  font-weight: 700;
+
+  &::after {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+  }
+}
+
+.icon {
+  display: none;
+}
