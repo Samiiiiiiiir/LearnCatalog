@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import styles from './sort.module.scss';
 import { SortType } from '@/types/SortType';
 import SortIcon from './sort.svg';

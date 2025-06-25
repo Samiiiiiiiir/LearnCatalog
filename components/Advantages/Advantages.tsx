@@ -1,5 +1,4 @@
 import { Advantage } from '@/types/TopPage';
-import React from 'react';
 import { Heading } from '../Heading/Heading';
 
 import styles from './advantages.module.scss';

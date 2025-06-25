@@ -5,7 +5,6 @@ import { IMenuItem } from '@/types/MenuItem';
 import { IProductItem } from '@/types/ProductItem';
 import { ITopPage } from '@/types/TopPage';
 import { notFound } from 'next/navigation';
-import React from 'react';
 import styles from './page.module.scss';
 import clsx from 'clsx';
 import parse from 'html-react-parser';

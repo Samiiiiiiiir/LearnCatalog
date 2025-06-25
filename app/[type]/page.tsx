@@ -1,5 +1,4 @@
 import { firstLevelCategories } from '@/helpers/firstLevelCategories';
-import React from 'react';
 
 interface TypeProps {
   params: Promise<{ type: string }>;

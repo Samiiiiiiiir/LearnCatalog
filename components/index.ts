@@ -10,3 +10,5 @@ export * from './FormattedPrice/FormattedPrice';
 export * from './Advantages/Advantages';
 export * from './Section/Section';
 export * from './Sort/Sort';
+export * from './Input/Input';
+export * from './Textarea/Textarea';

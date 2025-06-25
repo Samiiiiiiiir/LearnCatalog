@@ -1,8 +1,4 @@
-import React, {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  PropsWithChildren,
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
 
 import styles from './section.module.scss';
 import clsx from 'clsx';

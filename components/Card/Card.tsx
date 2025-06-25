@@ -1,12 +1,9 @@
-import React, { PropsWithChildren } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
 import styles from './card.module.scss';
 import clsx from 'clsx';
 
 interface CardProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   color?: 'white' | 'lightgrey';
 }
 
