@@ -40,7 +40,7 @@ export default async function Catalog({ params }: CatalogProps) {
   }
 
   return (
-    <div className={styles.page}>
+    <div>
       <Products title={pageData.title} items={products} />
       {type == 'courses' && (
         <>

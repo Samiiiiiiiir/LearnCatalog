@@ -5,7 +5,7 @@ import { IMenuItem } from '@/types/MenuItem';
 import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import styles from './sidebar.module.scss';
-import { Logo } from '@/components';
+import { Logo, SearchBar } from '@/components';
 
 interface SidebarProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
@@ -19,7 +19,7 @@ export const Sidebar = async ({ className, ...props }: SidebarProps) => {
   return (
     <aside className={clsx(styles.sidebar, className)} {...props}>
       <Logo />
-      <div>Search bar</div>
+      <SearchBar />
       <Menu data={data} />
     </aside>
   );

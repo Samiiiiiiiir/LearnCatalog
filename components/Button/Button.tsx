@@ -9,8 +9,8 @@ interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  appearance: 'primary' | 'secondary';
   children: ReactNode;
+  appearance?: 'primary' | 'secondary';
   arrow?: 'right' | 'down' | 'none';
 }
 
