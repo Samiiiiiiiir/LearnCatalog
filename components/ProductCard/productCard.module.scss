@@ -1,0 +1,193 @@
+.card {
+  padding: 1.875rem 1.875rem 1rem;
+
+  @media screen and (width <= 1024px) {
+    padding: 1rem;
+  }
+
+  @media screen and (width <= 640px) {
+    padding: 0.875rem;
+  }
+}
+
+/* header */
+
+.header {
+  grid-template-columns: 1fr auto;
+
+  padding-bottom: 1.25rem;
+
+  border-bottom: var(--border);
+
+  @media screen and (width <= 1280px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.header,
+.headerPreview,
+.headerInner {
+  display: grid;
+  gap: 2.125rem;
+
+  @media screen and (width <= 1024px) {
+    gap: 1.25rem;
+  }
+
+  @media screen and (width <= 640px) {
+    gap: 0.875rem;
+  }
+}
+
+.headerPreview {
+  grid-template-columns: auto 1fr;
+
+  @media screen and (width <= 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headerInner {
+  grid-template-columns: repeat(3, auto);
+
+  @media screen and (width <= 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.price,
+.credit {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.priceValue {
+  font-size: 1.25rem;
+  font-weight: 400;
+
+  @media screen and (width <= 640px) {
+    font-size: 1.125rem;
+  }
+}
+
+.titleBlock {
+  display: grid;
+  align-items: start;
+  gap: 2px;
+}
+
+.priceBlock,
+.creditBlock,
+.ratingBlock {
+  display: grid;
+  align-items: start;
+  grid-template-rows: 1.875rem auto;
+
+  font-weight: 300;
+  line-height: 1;
+}
+
+.categories,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.logo {
+  border-radius: 0.3125rem;
+}
+
+/* body */
+
+.body {
+  display: grid;
+  gap: 1rem;
+
+  padding-block: 1.5rem;
+
+  border-bottom: var(--border);
+
+  @media screen and (width <= 640px) {
+    padding-block: 1.25rem;
+  }
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.125rem;
+
+  @media screen and (width <= 1280px) {
+    gap: 2.375rem;
+  }
+
+  @media screen and (width <= 1024px) {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+.summary {
+  display: grid;
+  gap: 1.375rem;
+
+  align-content: start;
+}
+
+.disadvantagesBlock,
+.advantagesBlock {
+  padding-left: 0.875rem;
+
+  border-left: 3px solid var(--color-green);
+}
+
+.disadvantagesBlock {
+  border-color: var(--color-red);
+}
+
+.summaryTitle {
+  margin-bottom: 0.25rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  color: #3b434e;
+
+  font-weight: 700;
+
+  &::after {
+    flex-grow: 1;
+
+    width: 100%;
+    height: 1px;
+
+    content: '';
+
+    border-bottom: 0.0625rem dashed #c4c4c4;
+  }
+}
+
+/* actions */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  padding-top: 1rem;
+}

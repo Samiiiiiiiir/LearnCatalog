@@ -10,7 +10,7 @@
     'footer';
 
   @media screen and (width >= 768px) {
-    grid-template-columns: auto 17.5rem minmax(auto, 76.5rem) auto;
+    grid-template-columns: auto 17.5rem minmax(auto, 77.25rem) auto;
     grid-template-rows: 1fr auto;
     grid-template-areas:
       '. sidebar main .'
@@ -39,8 +39,13 @@
 .main {
   grid-area: main;
 
-  padding-top: 30px;
-  padding-inline: 0.75rem;
+  padding-top: 1.875rem;
+  padding-inline: 1.125rem;
+
+  @media screen and (width <= 640px) {
+    padding-top: 22px;
+    padding-inline: 10px;
+  }
 }
 
 .footer {

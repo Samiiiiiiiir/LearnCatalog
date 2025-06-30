@@ -2,7 +2,6 @@
   // Colors
   --color-primary: #0056d2;
   --color-secondary: #f5f6f8;
-  --color-border: #ebebeb;
   --color-dark: #3b434e;
   --color-light: #fff;
   --color-red: #fc836d;
@@ -11,6 +10,12 @@
 
   // Transition
   --transition-duration: 0.25s;
+
+  // Shadow
+  --box-shadow: 0 0.25rem 0.25rem 0 rgb(0 0 0 / 5%);
+
+  // Border
+  --border: 0.0625rem solid #ebebeb;
 }
 
 html,

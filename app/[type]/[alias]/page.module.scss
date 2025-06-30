@@ -1,13 +1,3 @@
-.linkedinTitle {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.pageTitle {
-  margin-bottom: 1.75rem;
-}
-
 .seoText {
   padding-top: 1.875rem;
 
@@ -45,4 +35,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem;
+
+  @media screen and (width <= 1024px) {
+    gap: 6px;
+  }
 }

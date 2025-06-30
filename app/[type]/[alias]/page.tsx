@@ -1,4 +1,4 @@
-import { Advantages, Heading, Section, Tag, VacancyStats } from '@/components';
+import { Advantages, Section, Tag, VacancyStats } from '@/components';
 import { API } from '@/helpers/api';
 import { firstLevelCategories } from '@/helpers/firstLevelCategories';
 import { IMenuItem } from '@/types/MenuItem';
@@ -6,7 +6,7 @@ import { IProductItem } from '@/types/ProductItem';
 import { ITopPage } from '@/types/TopPage';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
-import clsx from 'clsx';
+
 import parse from 'html-react-parser';
 
 import { Products } from './components/Products/Products';
@@ -44,11 +44,7 @@ export default async function Catalog({ params }: CatalogProps) {
       <Products title={pageData.title} items={products} />
       {type == 'courses' && (
         <>
-          <Section>
-            <div className={clsx(styles.linkedinTitle, styles.pageTitle)}>
-              <Heading type="h2">Jobs - {pageData.category}</Heading>
-              <Tag color="blue">LinkedIn</Tag>
-            </div>
+          <Section title={`Jobs - ${pageData.category}`}>
             {pageData.hh && (
               <VacancyStats
                 count={pageData.hh.count}
@@ -59,20 +55,14 @@ export default async function Catalog({ params }: CatalogProps) {
             )}
           </Section>
           {pageData.advantages && pageData.advantages.length > 0 && (
-            <Section>
-              <Heading type="h2" className={styles.pageTitle}>
-                Advantages
-              </Heading>
+            <Section title="Advantages">
               <Advantages list={pageData.advantages} />
               {pageData.seoText && (
                 <div className={styles.seoText}>{parse(pageData.seoText)}</div>
               )}
             </Section>
           )}
-          <Section>
-            <Heading type="h2" className={styles.pageTitle}>
-              Skills acquired
-            </Heading>
+          <Section title="Skills acquired">
             <div className={styles.skills}>
               {pageData.tags.map((t) => (
                 <Tag key={t} color="primary">

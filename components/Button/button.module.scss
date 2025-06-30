@@ -1,5 +1,5 @@
 .button {
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
 
   cursor: pointer;
   transition-duration: var(--transition-duration);
@@ -24,12 +24,12 @@
 
 .secondary {
   color: var(--color-dark);
-  border: 0.0625rem solid var(--color-border);
+  border: var(--border);
   background-color: var(--color-light);
 
   &:hover {
     border-color: var(--color-light);
-    background-color: var(--color-border);
+    background-color: #ebebeb;
   }
 }
 

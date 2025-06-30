@@ -15,7 +15,7 @@
 
   color: #787d85;
 
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 500;
 
   svg {
@@ -69,12 +69,17 @@
   cursor: pointer;
   user-select: none;
 
+  transition-duration: var(--transition-duration);
   text-transform: uppercase;
 
   color: #787d85;
 
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 300;
+
+  &:hover {
+    color: var(--color-dark);
+  }
 }
 
 // .secondLevelItemActive {}
@@ -99,7 +104,7 @@
 
   color: #787d85;
 
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
 
   &:hover {

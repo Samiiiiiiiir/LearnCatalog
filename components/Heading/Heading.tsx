@@ -8,7 +8,7 @@ interface HeadingProps
     HTMLAttributes<HTMLHeadingElement>,
     HTMLHeadingElement
   > {
-  type: 'h1' | 'h2' | 'h3';
+  type: 'h1' | 'h2' | 'h3' | 'h4';
   children: ReactNode;
 }
 
@@ -34,6 +34,11 @@ export const Heading = ({
         <h3 className={clsx(className, styles.h3)} {...props}>
           {children}
         </h3>
+      )}
+      {type === 'h4' && (
+        <h4 className={clsx(className, styles.h4)} {...props}>
+          {children}
+        </h4>
       )}
     </>
   );

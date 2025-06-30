@@ -13,13 +13,13 @@ export function SortReducer(state: SortReducerState, action: SortActions) {
       return {
         sort: SortType.RATING,
         products: [...state.products].sort(
-          (a, b) => a.initialRating - b.initialRating,
+          (a, b) => (b.reviewAvg ?? 0) - (a.reviewAvg ?? 0),
         ),
       };
     case SortType.PRICE:
       return {
         sort: SortType.PRICE,
-        products: [...state.products].sort((a, b) => a.price - b.price),
+        products: [...state.products].sort((a, b) => b.price - a.price),
       };
     default:
       return state;
