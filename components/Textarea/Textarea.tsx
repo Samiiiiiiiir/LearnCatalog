@@ -1,6 +1,7 @@
 import { DetailedHTMLProps, TextareaHTMLAttributes } from 'react';
-import styles from './textarea.module.scss';
 import clsx from 'clsx';
+
+import styles from './textarea.module.scss';
 
 interface TextareaProps
   extends DetailedHTMLProps<

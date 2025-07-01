@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import clsx from 'clsx';
 
 import styles from './paragraph.module.scss';
 

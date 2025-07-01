@@ -1,9 +1,11 @@
 'use client';
 
-import styles from './sort.module.scss';
-import { SortType } from '@/types/SortType';
-import SortIcon from './sort.svg';
 import clsx from 'clsx';
+import { SortType } from '@/types';
+
+import SortIcon from './sort.svg';
+
+import styles from './sort.module.scss';
 
 interface SortProps {
   type: SortType | null;

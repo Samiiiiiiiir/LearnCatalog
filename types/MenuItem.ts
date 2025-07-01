@@ -1,4 +1,4 @@
-import { IPageItem } from './PageItem';
+import { IPageItem } from '@/types';
 
 export interface IMenuItem {
   _id: {

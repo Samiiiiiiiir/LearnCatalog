@@ -1,4 +1,4 @@
-import { firstLevelCategories } from '@/helpers/firstLevelCategories';
+import { firstLevelCategories } from '@/helpers';
 
 interface TypeProps {
   params: Promise<{ type: string }>;

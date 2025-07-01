@@ -1,5 +1,4 @@
-import { IProductItem } from '@/types/ProductItem';
-import { SortType } from '@/types/SortType';
+import { IProductItem, SortType } from '@/types';
 
 type SortActions = { type: SortType };
 interface SortReducerState {

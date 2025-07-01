@@ -9,7 +9,7 @@
     'main'
     'footer';
 
-  @media screen and (width >= 768px) {
+  @media screen and (width > 768px) {
     grid-template-columns: auto 17.5rem minmax(auto, 77.25rem) auto;
     grid-template-rows: 1fr auto;
     grid-template-areas:

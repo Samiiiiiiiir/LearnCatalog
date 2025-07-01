@@ -1,19 +1,11 @@
 'use client';
 
-import {
-  Heading,
-  Input,
-  ProductCard,
-  Section,
-  Sort,
-  Tag,
-  Textarea,
-} from '@/components';
 import { useReducer } from 'react';
-import styles from './products.module.scss';
-import { IProductItem } from '@/types/ProductItem';
-import { SortType } from '@/types/SortType';
+import { Heading, ProductCard, Section, Sort, Tag } from '@/components';
+import { IProductItem, SortType } from '@/types';
 import { SortReducer } from './sort.reducer';
+
+import styles from './products.module.scss';
 
 interface ProductsProps {
   title: string;
@@ -37,8 +29,7 @@ export const Products = ({ title, items }: ProductsProps) => {
         <Tag color="gray">{state.products.length}</Tag>
         <Sort type={state.sort} setType={setType} />
       </div>
-      {/*   <Input placeholder="Test" />
-        <Textarea placeholder="Testtst" /> */}
+
       <div className={styles.list}>
         {state.products.map((p) => (
           <ProductCard key={p._id} {...p} />

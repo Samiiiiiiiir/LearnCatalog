@@ -1,15 +1,11 @@
-import { Advantages, Section, Tag, VacancyStats } from '@/components';
-import { API } from '@/helpers/api';
-import { firstLevelCategories } from '@/helpers/firstLevelCategories';
-import { IMenuItem } from '@/types/MenuItem';
-import { IProductItem } from '@/types/ProductItem';
-import { ITopPage } from '@/types/TopPage';
-import { notFound } from 'next/navigation';
-import styles from './page.module.scss';
-
 import parse from 'html-react-parser';
-
+import { notFound } from 'next/navigation';
+import { Advantages, Section, Tag, VacancyStats } from '@/components';
 import { Products } from './components/Products/Products';
+import { API, firstLevelCategories } from '@/helpers';
+import { IMenuItem, IProductItem, ITopPage } from '@/types';
+
+import styles from './page.module.scss';
 
 interface CatalogProps {
   params: Promise<{ alias: string; type: string }>;

@@ -1,6 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
-import styles from './card.module.scss';
 import clsx from 'clsx';
+
+import styles from './card.module.scss';
 
 interface CardProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

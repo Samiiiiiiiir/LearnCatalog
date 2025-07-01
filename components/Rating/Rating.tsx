@@ -7,10 +7,11 @@ import {
   useEffect,
   useState,
 } from 'react';
+import clsx from 'clsx';
+
 import StarIcon from './star.svg';
 
 import styles from './rating.module.scss';
-import clsx from 'clsx';
 
 interface RatingProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -60,6 +61,7 @@ export const Rating = ({
     <div
       onMouseLeave={handleMouseLeave}
       className={clsx(styles.wrapper, isEditable && styles.editable, className)}
+      title={initialRating ? `Rating: ${initialRating}` : ''}
       {...props}
     >
       {new Array(5).fill(null).map((_, i) => (

@@ -1,8 +1,9 @@
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
 
-import styles from './section.module.scss';
 import clsx from 'clsx';
-import { Heading } from '../Heading/Heading';
+import { Heading } from '@/components';
+
+import styles from './section.module.scss';
 
 interface SectionProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {

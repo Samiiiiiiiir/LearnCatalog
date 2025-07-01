@@ -14,3 +14,5 @@ export * from './Input/Input';
 export * from './Textarea/Textarea';
 export * from './SearchBar/SearchBar';
 export * from './ProductCard/ProductCard';
+export * from './Reviews/Reviews';
+export * from './ReviewForm/ReviewForm';

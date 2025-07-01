@@ -1,9 +1,9 @@
-import { Advantage } from '@/types/TopPage';
-import { Heading } from '../Heading/Heading';
+import { Paragraph, Heading } from '@/components';
+import { Advantage } from '@/types';
+
+import CheckIcon from './check.svg';
 
 import styles from './advantages.module.scss';
-import { Paragraph } from '../Paragraph/Paragraph';
-import CheckIcon from './check.svg';
 
 interface AdvantagesProps {
   list: Advantage[];

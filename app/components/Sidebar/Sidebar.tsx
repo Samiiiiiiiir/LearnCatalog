@@ -1,11 +1,11 @@
-import { Menu } from '@/app/components/Menu/Menu';
-import { API } from '@/helpers/api';
-import { FirstLevelCategoryId } from '@/helpers/firstLevelCategories';
-import { IMenuItem } from '@/types/MenuItem';
-import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import styles from './sidebar.module.scss';
+import clsx from 'clsx';
 import { Logo, SearchBar } from '@/components';
+import { Menu } from './../Menu/Menu';
+import { FirstLevelCategoryId, API } from '@/helpers';
+import { IMenuItem } from '@/types';
+
+import styles from './sidebar.module.scss';
 
 interface SidebarProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}

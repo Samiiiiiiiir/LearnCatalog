@@ -1,7 +1,7 @@
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import clsx from 'clsx';
 
 import styles from './input.module.scss';
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 
 interface InputProps
   extends DetailedHTMLProps<

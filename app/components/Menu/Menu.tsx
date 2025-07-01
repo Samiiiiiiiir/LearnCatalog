@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import clsx from 'clsx';
-import styles from './menu.module.scss';
-import { IMenuItem } from '@/types/MenuItem';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { firstLevelCategories } from '@/helpers/firstLevelCategories';
+import Link from 'next/link';
+import clsx from 'clsx';
+import { firstLevelCategories } from '@/helpers';
+import { IMenuItem } from '@/types';
+
+import styles from './menu.module.scss';
 
 interface MenuProps {
   data: IMenuItem[][];

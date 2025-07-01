@@ -1,7 +1,8 @@
-import { Card } from '../Card/Card';
-import styles from './vacancyStats.module.scss';
+import { Card, FormattedPrice } from '@/components';
+
 import RateIcon from './Rate.svg';
-import { FormattedPrice } from '../FormattedPrice/FormattedPrice';
+
+import styles from './vacancyStats.module.scss';
 
 interface VacancyStatsProps {
   count: number;

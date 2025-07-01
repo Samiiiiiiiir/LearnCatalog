@@ -14,7 +14,7 @@ export interface IProductItem {
   __v: number;
   image: string;
   initialRating: number;
-  reviews: Review[];
+  reviews: IReview[];
   reviewCount: number;
   reviewAvg?: number;
   advantages?: string;
@@ -26,11 +26,11 @@ export interface ProductCharacteristic {
   name: string;
 }
 
-export interface Review {
+export interface IReview {
   _id: string;
   name: string;
   title: string;
   description: string;
   rating: number;
-  createdAt: Date;
+  createdAt: string;
 }

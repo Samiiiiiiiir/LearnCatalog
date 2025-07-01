@@ -1,10 +1,12 @@
 'use client';
 
 import { KeyboardEvent, useState } from 'react';
-import { Button, Input } from '@/components';
-import styles from './searchBar.module.scss';
-import SearchIcon from './search.svg';
 import { useRouter } from 'next/navigation';
+import { Button, Input } from '@/components';
+
+import SearchIcon from './search.svg';
+
+import styles from './searchBar.module.scss';
 
 export const SearchBar = () => {
   const [search, setSearch] = useState('');

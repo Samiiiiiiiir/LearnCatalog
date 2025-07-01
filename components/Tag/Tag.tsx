@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import clsx from 'clsx';
 
 import styles from './tag.module.scss';
-import clsx from 'clsx';
 
 interface TagProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

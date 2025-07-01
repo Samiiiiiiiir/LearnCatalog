@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import clsx from 'clsx';
 
 import styles from './heading.module.scss';
-import clsx from 'clsx';
 
 interface HeadingProps
   extends DetailedHTMLProps<

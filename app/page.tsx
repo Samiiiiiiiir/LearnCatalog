@@ -1,7 +1,7 @@
 'use client';
 
-import { Button, Heading, Paragraph, Rating, Tag } from '@/components';
 import { useState } from 'react';
+import { Button, Heading, Paragraph, Rating, Tag } from '@/components';
 
 export default function Home() {
   const [rating, setRating] = useState(0);

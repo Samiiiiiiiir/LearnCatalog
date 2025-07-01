@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import clsx from 'clsx';
+
 import styles from './header.module.scss';
 
 interface HeaderProps
