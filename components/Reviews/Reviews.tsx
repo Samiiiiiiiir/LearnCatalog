@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReviewForm, Paragraph, Rating, Card } from '@/components';
+import { Paragraph, Rating } from '@/components';
 import { IReview } from '@/types';
 
 import UserIcon from './user.svg';
@@ -20,9 +20,9 @@ export const Review = ({ list }: ReviewProps) => {
   };
 
   return (
-    <Card className={styles.wrapper} color="lightgrey">
+    <>
       {list && list.length > 0 && (
-        <div>
+        <>
           {list.map((i) => (
             <div className={styles.reviewItem} key={i._id}>
               <div className={styles.reviewItemHeader}>
@@ -41,9 +41,8 @@ export const Review = ({ list }: ReviewProps) => {
               <Paragraph>{i.description}</Paragraph>
             </div>
           ))}
-        </div>
+        </>
       )}
-      <ReviewForm />
-    </Card>
+    </>
   );
 };

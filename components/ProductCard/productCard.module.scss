@@ -1,5 +1,6 @@
-.card {
-  padding: 1.875rem 1.875rem 1rem;
+.card,
+.reviewBlock {
+  padding: 1.875rem 1.875rem 1.25rem;
 
   @media screen and (width <= 1024px) {
     padding: 1rem;
@@ -140,6 +141,10 @@
   padding-left: 0.875rem;
 
   border-left: 3px solid var(--color-green);
+
+  @media screen and (width <= 640px) {
+    padding-left: 0.625rem;
+  }
 }
 
 .disadvantagesBlock {

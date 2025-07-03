@@ -11,6 +11,7 @@ import {
   Tag,
   Heading,
   FormattedPrice,
+  ReviewForm,
 } from '@/components';
 import { formatReviewCount } from '@/helpers';
 import { IProductItem } from '@/types';
@@ -43,7 +44,6 @@ export const ProductCard = (props: ProductCardProps) => {
               </div>
             </div>
           </div>
-
           <div className={styles.headerInner}>
             <div className={styles.priceBlock}>
               <div className={styles.price}>
@@ -73,7 +73,6 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           </div>
         </div>
-
         <div className={styles.body}>
           <Paragraph>{props.description}</Paragraph>
           <div className={styles.details}>
@@ -112,7 +111,6 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           </div>
         </div>
-
         <div className={styles.actions}>
           <Button>Find out more</Button>
           <Button
@@ -124,7 +122,12 @@ export const ProductCard = (props: ProductCardProps) => {
           </Button>
         </div>
       </Card>
-      {isReviewsOpen && <Review list={props.reviews} />}
+      {isReviewsOpen && (
+        <Card className={styles.reviewBlock} color="lightgrey">
+          <Review list={props.reviews} />
+          <ReviewForm productId={props._id} />
+        </Card>
+      )}
     </article>
   );
 };
