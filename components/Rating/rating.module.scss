@@ -21,6 +21,12 @@
 
 .editable {
   cursor: pointer;
+
+  outline-offset: 0.1875rem;
+
+  &:focus {
+    outline: 2px solid var(--color-dark);
+  }
 }
 
 .filled {

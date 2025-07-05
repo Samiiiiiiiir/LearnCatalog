@@ -4,6 +4,7 @@ import {
   DetailedHTMLProps,
   HTMLAttributes,
   KeyboardEvent,
+  Ref,
   useEffect,
   useState,
 } from 'react';
@@ -15,6 +16,7 @@ import styles from './rating.module.scss';
 
 interface RatingProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
   initialRating?: number;
   isEditable?: boolean;
   setRating?: (rating: number) => void;
@@ -25,6 +27,7 @@ export const Rating = ({
   initialRating = 0,
   setRating,
   className,
+  ref,
   ...props
 }: RatingProps) => {
   const [showedRating, setShowedRating] = useState(initialRating);
@@ -59,6 +62,8 @@ export const Rating = ({
 
   return (
     <div
+      tabIndex={isEditable ? 0 : -1}
+      ref={ref}
       onMouseLeave={handleMouseLeave}
       className={clsx(styles.wrapper, isEditable && styles.editable, className)}
       title={initialRating ? `Rating: ${initialRating}` : ''}
