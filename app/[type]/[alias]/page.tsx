@@ -25,7 +25,7 @@ export default async function Catalog({ params }: CatalogProps) {
     },
     body: JSON.stringify({
       category: pageData.category,
-      limit: 10,
+      limit: 16,
     }),
   }).then((res) => res.json());
 

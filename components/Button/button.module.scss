@@ -8,6 +8,10 @@
   border-radius: 0.3125rem;
 
   font-size: 0.875rem;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .primary {
@@ -47,4 +51,21 @@
 
 .down {
   transform: rotate(90deg);
+}
+
+.transparent {
+  place-self: start start;
+
+  padding: 0;
+
+  text-align: start;
+
+  color: var(--color-dark);
+  border: none;
+  outline-offset: 0.1875rem;
+  background-color: transparent;
+
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
 }

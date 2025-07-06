@@ -1,4 +1,4 @@
-export enum SortType {
+export enum ISortType {
   RATING = 'rating',
   PRICE = 'price',
 }

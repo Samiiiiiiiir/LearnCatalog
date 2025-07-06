@@ -2,7 +2,7 @@
 
 import { useReducer } from 'react';
 import { Heading, ProductCard, Section, Sort, Tag } from '@/components';
-import { IProductItem, SortType } from '@/types';
+import { IProductItem, ISortType } from '@/types';
 import { SortReducer } from './sort.reducer';
 
 import styles from './products.module.scss';
@@ -18,7 +18,7 @@ export const Products = ({ title, items }: ProductsProps) => {
     products: items,
   });
 
-  const setType = (type: SortType) => {
+  const setType = (type: ISortType) => {
     dispatch({ type });
   };
 

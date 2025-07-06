@@ -18,13 +18,17 @@
 }
 
 .rating {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.375rem;
   position: relative;
 
-  align-self: center;
-  justify-self: end;
+  display: grid;
+
+  place-self: center end;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem;
+
+  .inputError {
+    grid-column: 1 / -1;
+  }
 
   @media screen and (width <= 1024px) {
     grid-column: 1 / -1;
@@ -33,10 +37,6 @@
 
   @media screen and (width <= 640px) {
     justify-self: stretch;
-  }
-
-  .inputError {
-    grid-column: 1 / -1;
   }
 }
 
@@ -65,52 +65,33 @@
 
 .nameLabel {
   grid-column: 1 / 3;
+
   max-width: 15rem;
 
   @media screen and (width <= 640px) {
     grid-column: 1 / -1;
+
     max-width: 100%;
   }
 }
 
-.statusMessage {
-  width: 100%;
-  max-width: 18.75rem;
-
-  text-align: center;
-
-  font-weight: 600;
-  grid-column: 1 / -1;
-  justify-self: start;
-  padding-block: 6px;
-}
-
-.statusSuccess {
-  color: var(--color-green);
-  background-color: var(--color-green-light);
-}
-
-.statusError {
-  color: var(--color-red);
-
-  background-color: #ffbcbc;
-}
-
 .label {
-  display: grid;
-
   position: relative;
+
+  display: grid;
 }
 
 .errorMessage {
-  color: var(--color-red);
   position: absolute;
   bottom: -1.625rem;
   left: 0;
 
+  color: var(--color-red);
+
   @media screen and (width <= 1024px) {
-    font-size: 0.875rem;
     bottom: -1.375rem;
+
+    font-size: 0.875rem;
   }
 }
 
@@ -121,5 +102,55 @@
 .ratingError {
   svg {
     stroke: var(--color-red);
+  }
+}
+
+.statusBlock {
+  position: relative;
+
+  display: grid;
+
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem 1rem 1.5rem;
+
+  font-weight: 500;
+  gap: 4px;
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2px;
+
+  cursor: pointer;
+}
+
+.statusSuccess {
+  color: var(--color-green);
+  background-color: var(--color-green-light);
+
+  path {
+    stroke: var(--color-green);
+    stroke-width: 3;
+  }
+}
+
+.statusError {
+  color: var(--color-red);
+
+  background-color: #ffbcbc;
+
+  path {
+    stroke: var(--color-red);
+    stroke-width: 3;
   }
 }

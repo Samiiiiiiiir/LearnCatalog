@@ -11,7 +11,7 @@ interface ButtonProps
     HTMLButtonElement
   > {
   children: ReactNode;
-  appearance?: 'primary' | 'secondary';
+  appearance?: 'primary' | 'secondary' | 'transparent';
   arrow?: 'right' | 'down' | 'none';
 }
 
@@ -27,7 +27,11 @@ export const Button = ({
       className={clsx(
         className,
         styles.button,
-        appearance == 'primary' ? styles.primary : styles.secondary,
+        {
+          [styles.primary]: appearance == 'primary',
+          [styles.secondary]: appearance == 'secondary',
+          [styles.transparent]: appearance == 'transparent',
+        },
         arrow != 'none' && styles['with-arrow'],
       )}
       {...props}

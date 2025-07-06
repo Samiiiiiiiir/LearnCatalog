@@ -11,6 +11,14 @@
   }
 }
 
+.hideReviewBlock {
+  visibility: hidden !important;
+  overflow: hidden !important;
+
+  max-height: 0 !important;
+  padding: 0 !important;
+}
+
 /* header */
 
 .header {
@@ -86,6 +94,16 @@
 
   font-weight: 300;
   line-height: 1;
+}
+
+.ratingBlock {
+  > button {
+    color: var(--color-primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .categories,

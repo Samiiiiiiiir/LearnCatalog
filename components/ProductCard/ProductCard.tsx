@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import {
   Review,
   Card,
@@ -17,11 +17,24 @@ import { formatReviewCount } from '@/helpers';
 import { IProductItem } from '@/types';
 
 import styles from './productCard.module.scss';
+import clsx from 'clsx';
 
 interface ProductCardProps extends IProductItem {}
 
 export const ProductCard = (props: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+  const reviewsRef = useRef<HTMLDivElement>(null);
+
+  const handleReviewClick = () => {
+    setIsReviewsOpen(true);
+
+    if (reviewsRef.current) {
+      reviewsRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
 
   return (
     <article>
@@ -69,7 +82,9 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
             <div className={styles.ratingBlock}>
               <Rating initialRating={props.reviewAvg} />
-              <span>{formatReviewCount(props.reviewCount)}</span>
+              <Button appearance="transparent" onClick={handleReviewClick}>
+                <span>{formatReviewCount(props.reviewCount)}</span>
+              </Button>
             </div>
           </div>
         </div>
@@ -122,12 +137,17 @@ export const ProductCard = (props: ProductCardProps) => {
           </Button>
         </div>
       </Card>
-      {isReviewsOpen && (
-        <Card className={styles.reviewBlock} color="lightgrey">
-          <Review list={props.reviews} />
-          <ReviewForm productId={props._id} />
-        </Card>
-      )}
+      <Card
+        ref={reviewsRef}
+        className={clsx(
+          styles.reviewBlock,
+          !isReviewsOpen && styles.hideReviewBlock,
+        )}
+        color="lightgrey"
+      >
+        <Review list={props.reviews} />
+        <ReviewForm productId={props._id} />
+      </Card>
     </article>
   );
 };
