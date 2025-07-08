@@ -17,3 +17,4 @@ export * from './ProductCard/ProductCard';
 export * from './Reviews/Reviews';
 export * from './ReviewForm/ReviewForm';
 export * from './ScrollToTopButton/ScrollToTopButton';
+export * from './ButtonIcon/ButtonIcon';

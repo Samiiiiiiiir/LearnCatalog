@@ -1,27 +1,17 @@
 .button {
   position: fixed;
-
   right: 36px;
   bottom: 36px;
-
-  width: 58px;
-  aspect-ratio: 1;
-  border-radius: 16px;
-
-  text-align: center;
-
   opacity: 0.8;
-  border: none;
+
   &:hover {
     background-color: var(--color-primary);
     opacity: 1;
   }
 
   @media screen and (width <= 768px) {
-    width: 50px;
     right: 20px;
     bottom: 20px;
-    border-radius: 12px;
   }
 }
 

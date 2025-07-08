@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { Button } from '@/components';
-
-import ArrowIcon from './arrow.svg';
-
+import { ButtonIcon } from '@/components';
+import UpIcon from './up.svg';
 import styles from './scrollToTopButton.module.scss';
 
 export const ScrollToTopButton = () => {
@@ -29,14 +27,13 @@ export const ScrollToTopButton = () => {
   };
 
   return (
-    <Button
+    <ButtonIcon
       onClick={handleClick}
       appearance="primary"
+      Icon={UpIcon}
       className={clsx(styles.button, {
         [styles.hidden]: !isScrolled,
       })}
-    >
-      <ArrowIcon />
-    </Button>
+    />
   );
 };
