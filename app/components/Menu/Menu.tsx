@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
+import { motion, stagger } from 'framer-motion';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { firstLevelCategories } from '@/helpers';
 import { IMenuItem } from '@/types';
-import { motion } from 'framer-motion';
 
 import styles from './menu.module.scss';
 
@@ -16,11 +16,10 @@ interface MenuProps {
 
 const variants = {
   visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.03,
-    },
     marginTop: '10px',
+    transition: {
+      delayChildren: stagger(0.03),
+    },
   },
   hidden: {
     marginTop: 0,

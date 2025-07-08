@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import { Footer, Header, Sidebar } from './components';
+import { ScrollToTopButton } from '@/components';
 
 import styles from './layout.module.scss';
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <main className={styles.main}>{children}</main>
           <Footer className={styles.footer} />
         </div>
+        <ScrollToTopButton />
       </body>
     </html>
   );

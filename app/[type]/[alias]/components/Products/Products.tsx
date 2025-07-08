@@ -32,7 +32,7 @@ export const Products = ({ title, items }: ProductsProps) => {
 
       <div className={styles.list}>
         {state.products.map((p) => (
-          <ProductCard key={p._id} {...p} />
+          <ProductCard layout key={p._id} {...p} />
         ))}
       </div>
     </Section>

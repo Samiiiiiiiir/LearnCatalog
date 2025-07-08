@@ -16,3 +16,4 @@ export * from './SearchBar/SearchBar';
 export * from './ProductCard/ProductCard';
 export * from './Reviews/Reviews';
 export * from './ReviewForm/ReviewForm';
+export * from './ScrollToTopButton/ScrollToTopButton';

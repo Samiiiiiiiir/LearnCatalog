@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, Ref, useRef, useState } from 'react';
 import {
   Review,
   Card,
@@ -13,15 +13,29 @@ import {
   FormattedPrice,
   ReviewForm,
 } from '@/components';
+import { motion } from 'framer-motion';
 import { formatReviewCount } from '@/helpers';
 import { IProductItem } from '@/types';
 
 import styles from './productCard.module.scss';
-import clsx from 'clsx';
 
-interface ProductCardProps extends IProductItem {}
+interface ProductCardProps extends IProductItem {
+  ref: Ref<HTMLElement>;
+}
 
-export const ProductCard = (props: ProductCardProps) => {
+const reviewsVariants = {
+  visible: {
+    height: 'auto',
+    visibility: 'visible',
+  },
+  hidden: {
+    height: 0,
+    overflow: 'hidden',
+    visibility: 'hidden',
+  },
+};
+
+export const ProductCard = motion((props: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
   const reviewsRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +51,7 @@ export const ProductCard = (props: ProductCardProps) => {
   };
 
   return (
-    <article>
+    <article ref={props.ref}>
       <Card className={styles.card}>
         <div className={styles.header}>
           <div className={styles.headerPreview}>
@@ -137,17 +151,16 @@ export const ProductCard = (props: ProductCardProps) => {
           </Button>
         </div>
       </Card>
-      <Card
-        ref={reviewsRef}
-        className={clsx(
-          styles.reviewBlock,
-          !isReviewsOpen && styles.hideReviewBlock,
-        )}
-        color="lightgrey"
+      <motion.div
+        variants={reviewsVariants}
+        initial="hidden"
+        animate={isReviewsOpen ? 'visible' : 'hidden'}
       >
-        <Review list={props.reviews} />
-        <ReviewForm productId={props._id} />
-      </Card>
+        <Card ref={reviewsRef} className={styles.reviewBlock} color="lightgrey">
+          <Review list={props.reviews} />
+          <ReviewForm productId={props._id} />
+        </Card>
+      </motion.div>
     </article>
   );
-};
+});
