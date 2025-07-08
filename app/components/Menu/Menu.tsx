@@ -6,12 +6,39 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { firstLevelCategories } from '@/helpers';
 import { IMenuItem } from '@/types';
+import { motion } from 'framer-motion';
 
 import styles from './menu.module.scss';
 
 interface MenuProps {
   data: IMenuItem[][];
 }
+
+const variants = {
+  visible: {
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.03,
+    },
+    marginTop: '10px',
+  },
+  hidden: {
+    marginTop: 0,
+  },
+};
+
+const variantsChildren = {
+  visible: {
+    opacity: 1,
+    marginBottom: 10,
+    maxHeight: 44,
+  },
+  hidden: {
+    opacity: 0,
+    marginBottom: 0,
+    maxHeight: 0,
+  },
+};
 
 export const Menu = ({ data }: MenuProps) => {
   const [secondLevelMenus, setSecondLevelMenus] = useState<IMenuItem[][]>(data);
@@ -62,20 +89,19 @@ export const Menu = ({ data }: MenuProps) => {
                   <li key={item._id.secondCategory}>
                     <div
                       onClick={() => openSecondLevel(item._id.secondCategory)}
-                      className={clsx(styles.secondLevelItem, {
-                        [styles.secondLevelItemActive]: true,
-                      })}
+                      className={styles.secondLevelItem}
                     >
                       {item._id.secondCategory}
                     </div>
-                    <ul
-                      className={clsx(styles.thirdLevelWrapper, {
-                        [styles.thirdLevelWrapperShow]:
-                          isIncludes || item.isOpen,
-                      })}
+                    <motion.ul
+                      layout
+                      initial={isIncludes || item.isOpen ? 'visible' : 'hidden'}
+                      animate={isIncludes || item.isOpen ? 'visible' : 'hidden'}
+                      variants={variants}
+                      className={styles.thirdLevelWrapper}
                     >
                       {item.pages.map((item) => (
-                        <li key={item._id}>
+                        <motion.li key={item._id} variants={variantsChildren}>
                           <Link
                             href={`/${route}/${item.alias}`}
                             className={clsx(styles.thirdLevelItem, {
@@ -85,9 +111,9 @@ export const Menu = ({ data }: MenuProps) => {
                           >
                             {item.category}
                           </Link>
-                        </li>
+                        </motion.li>
                       ))}
-                    </ul>
+                    </motion.ul>
                   </li>
                 );
               })}

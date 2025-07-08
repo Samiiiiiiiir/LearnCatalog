@@ -43,7 +43,7 @@
 }
 
 .secondLevelWrapper {
-  display: none;
+  display: grid;
   gap: 0.625rem;
 
   margin-top: 0.75rem;
@@ -59,10 +59,6 @@
       margin-bottom: 0;
     }
   }
-}
-
-.secondLevelWrapperShow {
-  display: grid;
 }
 
 .secondLevelItem {
@@ -82,19 +78,12 @@
   }
 }
 
-// .secondLevelItemActive {}
-
 .thirdLevelWrapper {
-  display: none;
-  gap: 0.625rem;
+  display: block;
 
-  margin-block: 0.625rem;
+  overflow: hidden;
 
   padding-left: 0.375rem;
-}
-
-.thirdLevelWrapperShow {
-  display: grid;
 }
 
 .thirdLevelItem {
