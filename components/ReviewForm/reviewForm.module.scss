@@ -2,7 +2,7 @@
   display: grid;
   gap: 2rem 1.875rem;
 
-  grid-template-columns: minmax(auto, 148px) auto 1fr 1fr;
+  grid-template-columns: minmax(auto, 9.25rem) auto 1fr 1fr;
 
   align-items: start;
 
@@ -96,7 +96,7 @@
 }
 
 .fieldError {
-  outline: 1px solid var(--color-red) !important;
+  outline: 0.0625rem solid var(--color-red) !important;
 }
 
 .ratingError {
@@ -115,21 +115,21 @@
   padding: 1rem 1rem 1.5rem;
 
   font-weight: 500;
-  gap: 4px;
+  gap: 0.25rem;
   grid-column: 1 / -1;
   justify-self: start;
 }
 
 .closeBtn {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 0.875rem;
+  right: 0.875rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 2px;
+  padding: 0.125rem;
 
   cursor: pointer;
 }

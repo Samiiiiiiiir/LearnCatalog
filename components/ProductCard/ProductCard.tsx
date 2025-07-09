@@ -167,7 +167,6 @@ export const ProductCard = motion((props: ProductCardProps) => {
         variants={reviewsVariants}
         initial="hidden"
         animate={isReviewsOpen ? 'visible' : 'hidden'}
-        transition={{ duration: 0.3 }}
         ref={reviewsRef}
         onAnimationComplete={() => scrollToReviews()}
       >

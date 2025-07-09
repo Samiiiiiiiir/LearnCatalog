@@ -1,17 +1,22 @@
 .button {
-  border-radius: 14px;
-  width: 58px;
-  aspect-ratio: 1;
-  text-align: center;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.625rem;
+
   cursor: pointer;
-  box-shadow: var(--box-shadow);
   transition-duration: var(--transition-duration);
 
-  @media screen and (width <= 768px) {
-    width: 50px;
+  border: none;
+  border-radius: 0.875rem;
+  box-shadow: var(--box-shadow);
+  aspect-ratio: 1;
 
-    border-radius: 10px;
+  @media screen and (width <= 768px) {
+    width: 3.125rem;
+
+    border-radius: 0.625rem;
   }
 }
 
