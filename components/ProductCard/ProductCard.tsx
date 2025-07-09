@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Fragment, Ref, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   Review,
   Card,
@@ -13,7 +14,6 @@ import {
   FormattedPrice,
   ReviewForm,
 } from '@/components';
-import { motion } from 'framer-motion';
 import { formatReviewCount } from '@/helpers';
 import { IProductItem } from '@/types';
 
@@ -37,12 +37,21 @@ const reviewsVariants = {
 
 export const ProductCard = motion((props: ProductCardProps) => {
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+  const [shouldScroll, setShouldScroll] = useState(false);
+
   const reviewsRef = useRef<HTMLDivElement>(null);
 
   const handleReviewClick = () => {
-    setIsReviewsOpen(true);
+    if (shouldScroll) {
+      scrollToReviews();
+    } else {
+      setIsReviewsOpen(true);
+      setShouldScroll(true);
+    }
+  };
 
-    if (reviewsRef.current) {
+  const scrollToReviews = () => {
+    if (reviewsRef.current && shouldScroll) {
       reviewsRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -143,7 +152,10 @@ export const ProductCard = motion((props: ProductCardProps) => {
         <div className={styles.actions}>
           <Button>Find out more</Button>
           <Button
-            onClick={() => setIsReviewsOpen((prev) => !prev)}
+            onClick={() => {
+              setIsReviewsOpen((prev) => !prev);
+              setShouldScroll(false);
+            }}
             appearance="secondary"
             arrow={isReviewsOpen ? 'down' : 'right'}
           >
@@ -155,8 +167,11 @@ export const ProductCard = motion((props: ProductCardProps) => {
         variants={reviewsVariants}
         initial="hidden"
         animate={isReviewsOpen ? 'visible' : 'hidden'}
+        transition={{ duration: 0.3 }}
+        ref={reviewsRef}
+        onAnimationComplete={() => scrollToReviews()}
       >
-        <Card ref={reviewsRef} className={styles.reviewBlock} color="lightgrey">
+        <Card className={styles.reviewBlock} color="lightgrey">
           <Review list={props.reviews} />
           <ReviewForm productId={props._id} />
         </Card>
