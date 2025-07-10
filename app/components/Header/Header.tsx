@@ -3,15 +3,15 @@
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { ButtonIcon, Logo } from '@/components';
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { IMenuItem } from '@/types';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 import BurgerIcon from './burger.svg';
 import CloseIcon from '@/helpers/icons/close.svg';
 
 import styles from './header.module.scss';
-import { Sidebar } from '../Sidebar/Sidebar';
-import { IMenuItem } from '@/types';
-import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 
 interface HeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
