@@ -60,6 +60,28 @@ export const Rating = ({
     }
   };
 
+  const changeRatingByKeyboard = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (
+      (e.code == 'ArrowUp' || e.code == 'ArrowRight') &&
+      initialRating < 5 &&
+      setRating &&
+      isEditable
+    ) {
+      e.preventDefault();
+      setRating(initialRating + 1);
+    }
+
+    if (
+      (e.code == 'ArrowDown' || e.code == 'ArrowLeft') &&
+      initialRating > 0 &&
+      setRating &&
+      isEditable
+    ) {
+      e.preventDefault();
+      setRating(initialRating - 1);
+    }
+  };
+
   return (
     <div
       tabIndex={isEditable ? 0 : -1}
@@ -67,6 +89,9 @@ export const Rating = ({
       onMouseLeave={handleMouseLeave}
       className={clsx(styles.wrapper, isEditable && styles.editable, className)}
       title={initialRating ? `Rating: ${initialRating}` : ''}
+      onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+        changeRatingByKeyboard(e)
+      }
       {...props}
     >
       {new Array(5).fill(null).map((_, i) => (
@@ -75,7 +100,6 @@ export const Rating = ({
           onClick={() => handleClick(i + 1)}
           onMouseEnter={() => handleHover(i + 1)}
           onKeyDown={(e) => handleKeyDown(e, i + 1)}
-          tabIndex={isEditable ? 0 : -1}
         >
           <StarIcon className={clsx(i + 1 <= showedRating && styles.filled)} />
         </span>

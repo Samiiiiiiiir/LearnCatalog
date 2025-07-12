@@ -56,6 +56,7 @@ export const ProductCard = motion((props: ProductCardProps) => {
         behavior: 'smooth',
         block: 'start',
       });
+      reviewsRef.current.focus();
     }
   };
 
@@ -169,6 +170,7 @@ export const ProductCard = motion((props: ProductCardProps) => {
         animate={isReviewsOpen ? 'visible' : 'hidden'}
         ref={reviewsRef}
         onAnimationComplete={() => scrollToReviews()}
+        tabIndex={isReviewsOpen ? 0 : -1}
       >
         <Card className={styles.reviewBlock} color="lightgrey">
           <Review list={props.reviews} />

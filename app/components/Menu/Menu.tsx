@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { motion, stagger } from 'framer-motion';
 import Link from 'next/link';
@@ -56,8 +56,18 @@ export const Menu = ({ data }: MenuProps) => {
         return i;
       }),
     );
-
     setSecondLevelMenus(newMenus);
+  };
+
+  const openSecondLevelByKeyboard = (
+    e: KeyboardEvent<HTMLDivElement>,
+    secondCategory: string,
+  ) => {
+    if (e.code == 'Space' || e.key == 'Enter') {
+      e.preventDefault();
+
+      openSecondLevel(secondCategory);
+    }
   };
 
   return (
@@ -87,6 +97,10 @@ export const Menu = ({ data }: MenuProps) => {
                 return (
                   <li key={item._id.secondCategory}>
                     <div
+                      tabIndex={0}
+                      onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+                        openSecondLevelByKeyboard(e, item._id.secondCategory)
+                      }
                       onClick={() => openSecondLevel(item._id.secondCategory)}
                       className={styles.secondLevelItem}
                     >
@@ -99,16 +113,16 @@ export const Menu = ({ data }: MenuProps) => {
                       variants={variants}
                       className={styles.thirdLevelWrapper}
                     >
-                      {item.pages.map((item) => (
-                        <motion.li key={item._id} variants={variantsChildren}>
+                      {item.pages.map((i) => (
+                        <motion.li key={i._id} variants={variantsChildren}>
                           <Link
-                            href={`/${route}/${item.alias}`}
+                            href={`/${route}/${i.alias}`}
                             className={clsx(styles.thirdLevelItem, {
-                              [styles.thirdLevelItemActive]:
-                                alias == item.alias,
+                              [styles.thirdLevelItemActive]: alias == i.alias,
                             })}
+                            tabIndex={isIncludes || item.isOpen ? 0 : -1}
                           >
-                            {item.category}
+                            {i.category}
                           </Link>
                         </motion.li>
                       ))}
