@@ -141,7 +141,11 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               </span>
             )}
           </label>
-          <Button disabled={isSubmitting} onClick={() => clearErrors()}>
+          <Button
+            className={styles.sendButton}
+            disabled={isSubmitting}
+            onClick={() => clearErrors()}
+          >
             {isSubmitting ? 'Sending...' : 'Send'}
           </Button>
           <Paragraph className={styles.notice}>

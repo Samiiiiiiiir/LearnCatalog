@@ -133,7 +133,7 @@ export const ProductCard = motion((props: ProductCardProps) => {
             <div className={styles.summary}>
               {props.advantages && (
                 <div className={styles.advantagesBlock}>
-                  <Heading type="h4" className={styles.summaryTitle}>
+                  <Heading type="h3" className={styles.summaryTitle}>
                     Advantages
                   </Heading>
                   <Paragraph>{props.advantages}</Paragraph>
@@ -141,7 +141,7 @@ export const ProductCard = motion((props: ProductCardProps) => {
               )}
               {props.disadvantages && (
                 <div className={styles.disadvantagesBlock}>
-                  <Heading type="h4" className={styles.summaryTitle}>
+                  <Heading type="h3" className={styles.summaryTitle}>
                     Disadvantages
                   </Heading>
                   <Paragraph>{props.disadvantages}</Paragraph>

@@ -43,6 +43,7 @@ export const Header = ({ data, className, ...props }: HeaderProps) => {
         className={styles.burger}
         Icon={BurgerIcon}
         appearance="secondary"
+        aria-label="Open mobile menu"
       />
       <motion.div
         variants={sidebarVariants}
@@ -56,6 +57,7 @@ export const Header = ({ data, className, ...props }: HeaderProps) => {
           className={styles.close}
           appearance="secondary"
           Icon={CloseIcon}
+          aria-label="Close mobile menu"
         />
       </motion.div>
     </header>

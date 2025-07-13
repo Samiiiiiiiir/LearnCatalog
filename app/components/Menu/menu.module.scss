@@ -13,7 +13,7 @@
   cursor: pointer;
   transition-duration: var(--transition-duration);
 
-  color: #787d85;
+  color: #6c7077;
 
   font-size: 1.375rem;
   font-weight: 500;
@@ -68,7 +68,7 @@
   transition-duration: var(--transition-duration);
   text-transform: uppercase;
 
-  color: #787d85;
+  color: #6c7077;
 
   font-size: 1rem;
   font-weight: 300;
@@ -91,12 +91,12 @@
 
   transition-duration: var(--transition-duration);
 
-  color: #787d85;
+  color: #6c7077;
+
+  outline-offset: -1px;
 
   font-size: 1rem;
   font-weight: 500;
-
-  outline-offset: -1px;
 
   &:hover {
     color: var(--color-primary);

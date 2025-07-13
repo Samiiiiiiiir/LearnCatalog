@@ -34,6 +34,7 @@ export const ScrollToTopButton = () => {
       className={clsx(styles.button, {
         [styles.hidden]: !isScrolled,
       })}
+      aria-label="Scroll to top"
     />
   );
 };

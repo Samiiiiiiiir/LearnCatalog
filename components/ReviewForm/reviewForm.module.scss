@@ -154,3 +154,15 @@
     stroke-width: 3;
   }
 }
+
+.sendButton {
+  &:disabled {
+    cursor: default;
+
+    &:hover {
+      color: var(--color-light);
+      border-color: var(--color-light);
+      background-color: var(--color-primary);
+    }
+  }
+}
