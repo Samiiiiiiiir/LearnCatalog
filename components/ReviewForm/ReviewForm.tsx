@@ -30,6 +30,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
     control,
     reset,
     formState: { errors, isSubmitting },
+    clearErrors,
   } = useForm<IFormInputs>();
   const [formStatus, setFormStatus] = useState<IFormStatus>(IFormStatus.IDLE);
 
@@ -77,7 +78,9 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               })}
             />
             {errors.name && (
-              <span className={styles.errorMessage}>{errors.name.message}</span>
+              <span role="alert" className={styles.errorMessage}>
+                {errors.name.message}
+              </span>
             )}
           </label>
           <label className={styles.label}>
@@ -92,7 +95,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               })}
             />
             {errors.title && (
-              <span className={styles.errorMessage}>
+              <span role="alert" className={styles.errorMessage}>
                 {errors.title.message}
               </span>
             )}
@@ -116,7 +119,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               )}
             />
             {errors.rating && (
-              <span className={styles.errorMessage}>
+              <span role="alert" className={styles.errorMessage}>
                 {errors.rating.message}
               </span>
             )}
@@ -133,12 +136,12 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               })}
             />
             {errors.description && (
-              <span className={styles.errorMessage}>
+              <span role="alert" className={styles.errorMessage}>
                 {errors.description.message}
               </span>
             )}
           </label>
-          <Button disabled={isSubmitting}>
+          <Button disabled={isSubmitting} onClick={() => clearErrors()}>
             {isSubmitting ? 'Sending...' : 'Send'}
           </Button>
           <Paragraph className={styles.notice}>
@@ -153,6 +156,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
             [styles.statusSuccess]: isSuccess,
             [styles.statusError]: isError,
           })}
+          role="alert"
         >
           <Heading type="h3">{isSuccess ? 'Thank you!' : 'Ooops!'}</Heading>
           <Paragraph>
@@ -164,6 +168,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
             appearance="transparent"
             className={styles.closeBtn}
             onClick={() => setFormStatus(IFormStatus.IDLE)}
+            aria-label="Close notification"
           >
             <CloseIcon />
           </Button>

@@ -159,6 +159,7 @@ export const ProductCard = motion((props: ProductCardProps) => {
             }}
             appearance="secondary"
             arrow={isReviewsOpen ? 'down' : 'right'}
+            aria-expanded={isReviewsOpen}
           >
             Read reviews
           </Button>

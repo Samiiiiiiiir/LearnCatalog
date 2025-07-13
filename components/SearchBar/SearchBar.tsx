@@ -24,7 +24,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className={styles.searchBar}>
+    <form className={styles.searchBar} role="search">
       <Input
         className={styles.input}
         placeholder="Search..."
@@ -32,9 +32,13 @@ export const SearchBar = () => {
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <Button className={styles.button} onClick={navigateToSearch}>
+      <Button
+        aria-label="Search the site"
+        className={styles.button}
+        onClick={navigateToSearch}
+      >
         <SearchIcon className={styles.icon} />
       </Button>
-    </div>
+    </form>
   );
 };

@@ -71,68 +71,74 @@ export const Menu = ({ data }: MenuProps) => {
   };
 
   return (
-    <ul className={styles.firstLevelWrapper}>
-      {firstLevelCategories.map(({ id, name, Icon, route }) => (
-        <li key={id}>
-          <Link
-            href={`/${route}`}
-            className={clsx(styles.firstLevelItem, {
-              [styles.firstLevelItemActive]: type == route,
-            })}
-          >
-            <Icon />
-            <span>{name}</span>
-          </Link>
-          <ul
-            className={clsx(styles.secondLevelWrapper, {
-              [styles.secondLevelWrapperShow]: type == route,
-            })}
-          >
-            {secondLevelMenus[id] &&
-              secondLevelMenus[id].map((item) => {
-                const isIncludes = item.pages
-                  .map((p) => p.alias)
-                  .includes(alias as string);
-
-                return (
-                  <li key={item._id.secondCategory}>
-                    <div
-                      tabIndex={0}
-                      onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
-                        openSecondLevelByKeyboard(e, item._id.secondCategory)
-                      }
-                      onClick={() => openSecondLevel(item._id.secondCategory)}
-                      className={styles.secondLevelItem}
-                    >
-                      {item._id.secondCategory}
-                    </div>
-                    <motion.ul
-                      layout
-                      initial={isIncludes || item.isOpen ? 'visible' : 'hidden'}
-                      animate={isIncludes || item.isOpen ? 'visible' : 'hidden'}
-                      variants={variants}
-                      className={styles.thirdLevelWrapper}
-                    >
-                      {item.pages.map((i) => (
-                        <motion.li key={i._id} variants={variantsChildren}>
-                          <Link
-                            href={`/${route}/${i.alias}`}
-                            className={clsx(styles.thirdLevelItem, {
-                              [styles.thirdLevelItemActive]: alias == i.alias,
-                            })}
-                            tabIndex={isIncludes || item.isOpen ? 0 : -1}
-                          >
-                            {i.category}
-                          </Link>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-                  </li>
-                );
+    <nav>
+      <ul className={styles.firstLevelWrapper}>
+        {firstLevelCategories.map(({ id, name, Icon, route }) => (
+          <li key={id}>
+            <Link
+              href={`/${route}`}
+              className={clsx(styles.firstLevelItem, {
+                [styles.firstLevelItemActive]: type == route,
               })}
-          </ul>
-        </li>
-      ))}
-    </ul>
+            >
+              <Icon />
+              <span>{name}</span>
+            </Link>
+            <ul
+              className={clsx(styles.secondLevelWrapper, {
+                [styles.secondLevelWrapperShow]: type == route,
+              })}
+            >
+              {secondLevelMenus[id] &&
+                secondLevelMenus[id].map((item) => {
+                  const isIncludes = item.pages
+                    .map((p) => p.alias)
+                    .includes(alias as string);
+
+                  return (
+                    <li key={item._id.secondCategory}>
+                      <div
+                        tabIndex={0}
+                        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+                          openSecondLevelByKeyboard(e, item._id.secondCategory)
+                        }
+                        onClick={() => openSecondLevel(item._id.secondCategory)}
+                        className={styles.secondLevelItem}
+                      >
+                        {item._id.secondCategory}
+                      </div>
+                      <motion.ul
+                        layout
+                        initial={
+                          isIncludes || item.isOpen ? 'visible' : 'hidden'
+                        }
+                        animate={
+                          isIncludes || item.isOpen ? 'visible' : 'hidden'
+                        }
+                        variants={variants}
+                        className={styles.thirdLevelWrapper}
+                      >
+                        {item.pages.map((i) => (
+                          <motion.li key={i._id} variants={variantsChildren}>
+                            <Link
+                              href={`/${route}/${i.alias}`}
+                              className={clsx(styles.thirdLevelItem, {
+                                [styles.thirdLevelItemActive]: alias == i.alias,
+                              })}
+                              tabIndex={isIncludes || item.isOpen ? 0 : -1}
+                            >
+                              {i.category}
+                            </Link>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    </li>
+                  );
+                })}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };

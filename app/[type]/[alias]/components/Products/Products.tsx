@@ -26,7 +26,9 @@ export const Products = ({ title, items }: ProductsProps) => {
     <Section>
       <div className={styles.title}>
         <Heading type="h1">{title}</Heading>
-        <Tag color="gray">{state.products.length}</Tag>
+        <Tag aria-label={`${state.products.length} elements`} color="gray">
+          {state.products.length}
+        </Tag>
         <Sort type={state.sort} setType={setType} />
       </div>
 
