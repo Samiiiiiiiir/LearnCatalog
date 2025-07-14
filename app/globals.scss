@@ -18,6 +18,10 @@
   --border: 0.0625rem solid #ebebeb;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 html,
 body {
   overflow-x: hidden;

@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { motion, stagger } from 'framer-motion';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { Button } from '@/components';
 import { firstLevelCategories } from '@/helpers';
 import { IMenuItem } from '@/types';
 
@@ -15,24 +16,24 @@ interface MenuProps {
 }
 
 const variants = {
-  visible: {
+  opened: {
     marginTop: '10px',
     transition: {
       delayChildren: stagger(0.03),
     },
   },
-  hidden: {
+  closed: {
     marginTop: 0,
   },
 };
 
 const variantsChildren = {
-  visible: {
+  opened: {
     opacity: 1,
     marginBottom: 10,
     maxHeight: 44,
   },
-  hidden: {
+  closed: {
     opacity: 0,
     marginBottom: 0,
     maxHeight: 0,
@@ -60,7 +61,7 @@ export const Menu = ({ data }: MenuProps) => {
   };
 
   const openSecondLevelByKeyboard = (
-    e: KeyboardEvent<HTMLDivElement>,
+    e: KeyboardEvent<HTMLButtonElement>,
     secondCategory: string,
   ) => {
     if (e.code == 'Space' || e.key == 'Enter') {
@@ -97,23 +98,24 @@ export const Menu = ({ data }: MenuProps) => {
 
                   return (
                     <li key={item._id.secondCategory}>
-                      <div
-                        tabIndex={0}
-                        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) =>
+                      <Button
+                        appearance="transparent"
+                        onKeyDown={(e: KeyboardEvent<HTMLButtonElement>) =>
                           openSecondLevelByKeyboard(e, item._id.secondCategory)
                         }
                         onClick={() => openSecondLevel(item._id.secondCategory)}
                         className={styles.secondLevelItem}
+                        aria-expanded={isIncludes || item.isOpen}
                       >
                         {item._id.secondCategory}
-                      </div>
+                      </Button>
                       <motion.ul
                         layout
                         initial={
-                          isIncludes || item.isOpen ? 'visible' : 'hidden'
+                          isIncludes || item.isOpen ? 'opened' : 'closed'
                         }
                         animate={
-                          isIncludes || item.isOpen ? 'visible' : 'hidden'
+                          isIncludes || item.isOpen ? 'opened' : 'closed'
                         }
                         variants={variants}
                         className={styles.thirdLevelWrapper}

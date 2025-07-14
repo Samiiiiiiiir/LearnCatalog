@@ -32,11 +32,13 @@ export const Products = ({ title, items }: ProductsProps) => {
         <Sort type={state.sort} setType={setType} />
       </div>
 
-      <div className={styles.list}>
+      <ul className={styles.list}>
         {state.products.map((p) => (
-          <ProductCard layout key={p._id} {...p} />
+          <li key={p._id}>
+            <ProductCard layout {...p} />
+          </li>
         ))}
-      </div>
+      </ul>
     </Section>
   );
 };

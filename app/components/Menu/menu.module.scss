@@ -43,7 +43,7 @@
 }
 
 .secondLevelWrapper {
-  display: grid;
+  display: none;
   gap: 0.625rem;
 
   margin-top: 0.75rem;
@@ -59,6 +59,10 @@
       margin-bottom: 0;
     }
   }
+}
+
+.secondLevelWrapperShow {
+  display: grid;
 }
 
 .secondLevelItem {
