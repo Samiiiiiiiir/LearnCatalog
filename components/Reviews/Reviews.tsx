@@ -27,7 +27,7 @@ export const Review = ({ list }: ReviewProps) => {
             <div className={styles.reviewItem} key={i._id}>
               <div className={styles.reviewItemHeader}>
                 <UserIcon />
-                <div className={styles.test}>
+                <div className={styles.reviewNameWrapper}>
                   <span className={styles.reviewItemName}>
                     {i.name}:&nbsp;&nbsp;
                   </span>

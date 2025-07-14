@@ -2,7 +2,7 @@
 
 import { KeyboardEvent, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { motion, stagger } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { Button } from '@/components';
@@ -10,35 +10,16 @@ import { firstLevelCategories } from '@/helpers';
 import { IMenuItem } from '@/types';
 
 import styles from './menu.module.scss';
+import {
+  secondLevelVariants,
+  secondLevelVariantsChildren,
+  thirdLevelVariants,
+  thirdLevelVariantsChildren,
+} from './menuVariants';
 
 interface MenuProps {
   data: IMenuItem[][];
 }
-
-const variants = {
-  opened: {
-    marginTop: '10px',
-    transition: {
-      delayChildren: stagger(0.03),
-    },
-  },
-  closed: {
-    marginTop: 0,
-  },
-};
-
-const variantsChildren = {
-  opened: {
-    opacity: 1,
-    marginBottom: 10,
-    maxHeight: 44,
-  },
-  closed: {
-    opacity: 0,
-    marginBottom: 0,
-    maxHeight: 0,
-  },
-};
 
 export const Menu = ({ data }: MenuProps) => {
   const [secondLevelMenus, setSecondLevelMenus] = useState<IMenuItem[][]>(data);
@@ -85,10 +66,14 @@ export const Menu = ({ data }: MenuProps) => {
               <Icon />
               <span>{name}</span>
             </Link>
-            <ul
+            <motion.ul
+              layout
               className={clsx(styles.secondLevelWrapper, {
                 [styles.secondLevelWrapperShow]: type == route,
               })}
+              initial={type == route ? 'opened' : 'closed'}
+              animate={type == route ? 'opened' : 'closed'}
+              variants={secondLevelVariants}
             >
               {secondLevelMenus[id] &&
                 secondLevelMenus[id].map((item) => {
@@ -96,8 +81,14 @@ export const Menu = ({ data }: MenuProps) => {
                     .map((p) => p.alias)
                     .includes(alias as string);
 
+                  const dynamicHeight = item.pages.length * 44 + 16;
+
                   return (
-                    <li key={item._id.secondCategory}>
+                    <motion.li
+                      key={item._id.secondCategory}
+                      variants={secondLevelVariantsChildren}
+                      custom={dynamicHeight}
+                    >
                       <Button
                         appearance="transparent"
                         onKeyDown={(e: KeyboardEvent<HTMLButtonElement>) =>
@@ -117,11 +108,14 @@ export const Menu = ({ data }: MenuProps) => {
                         animate={
                           isIncludes || item.isOpen ? 'opened' : 'closed'
                         }
-                        variants={variants}
+                        variants={thirdLevelVariants}
                         className={styles.thirdLevelWrapper}
                       >
                         {item.pages.map((i) => (
-                          <motion.li key={i._id} variants={variantsChildren}>
+                          <motion.li
+                            key={i._id}
+                            variants={thirdLevelVariantsChildren}
+                          >
                             <Link
                               href={`/${route}/${i.alias}`}
                               className={clsx(styles.thirdLevelItem, {
@@ -134,10 +128,10 @@ export const Menu = ({ data }: MenuProps) => {
                           </motion.li>
                         ))}
                       </motion.ul>
-                    </li>
+                    </motion.li>
                   );
                 })}
-            </ul>
+            </motion.ul>
           </li>
         ))}
       </ul>
