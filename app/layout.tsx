@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import { ScrollToTopButton } from '@/components';
+import { FirstLevelCategoryId, getMenu } from '@/helpers';
 import { Footer, Header, Sidebar } from './components';
 
 import styles from './layout.module.scss';
 
 import './globals.scss';
-import { FirstLevelCategoryId, getMenu } from '@/helpers';
 
 const notoSans = Noto_Sans({
   weight: ['300', '400', '500', '600', '700'],

@@ -1,14 +1,30 @@
 import parse from 'html-react-parser';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import { Advantages, Section, Tag, VacancyStats } from '@/components';
-import { Products } from './components/Products/Products';
 import { API, firstLevelCategories } from '@/helpers';
 import { IMenuItem, IProductItem, ITopPage } from '@/types';
+import { Products } from './components/Products/Products';
 
 import styles from './page.module.scss';
 
 interface CatalogProps {
   params: Promise<{ alias: string; type: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: CatalogProps): Promise<Metadata> {
+  const { alias } = await params;
+
+  const pageData: ITopPage = await fetch(`${API.topPage.byAlias}${alias}`).then(
+    (res) => res.json(),
+  );
+
+  return {
+    title: pageData.metaTitle,
+    description: pageData.metaDescription,
+  };
 }
 
 export default async function Catalog({ params }: CatalogProps) {
