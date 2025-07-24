@@ -1,12 +1,12 @@
 export const API = {
   topPage: {
-    find: process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-    byAlias: process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/',
+    find: process.env.NEXT_PUBLIC_DOMAIN + '/api/topPage/find',
+    byAlias: process.env.NEXT_PUBLIC_DOMAIN + '/api/topPage/byAlias',
   },
   product: {
-    find: process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find',
+    find: process.env.NEXT_PUBLIC_DOMAIN + '/api/products/find',
   },
   review: {
-    createDemo: process.env.NEXT_PUBLIC_DOMAIN + '/api/review/create-demo',
+    create: process.env.NEXT_PUBLIC_DOMAIN + '/api/review/create',
   },
 };

@@ -23,17 +23,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const data = await Promise.all([
-    getMenu(FirstLevelCategoryId.Courses),
-    getMenu(FirstLevelCategoryId.Services),
-  ]);
+  const data = await getMenu(FirstLevelCategoryId.Courses);
 
   return (
     <html lang="en" className={notoSans.className}>
       <body>
         <div className={styles.layout}>
-          <Header data={data} className={styles.header} />
-          <Sidebar data={data} className={styles.sidebar} />
+          <Header data={[data]} className={styles.header} />
+          <Sidebar data={[data]} className={styles.sidebar} />
           <main className={styles.main}>{children}</main>
           <Footer className={styles.footer} />
         </div>

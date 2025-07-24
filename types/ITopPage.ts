@@ -18,10 +18,9 @@ export interface ITopPage {
   firstCategory: TopLevelCategory;
   createdAt: Date;
   updatedAt: Date;
-  __v: number;
   advantages?: Advantage[];
   seoText?: string;
-  hh?: Hh;
+  ln?: Ln;
 }
 
 export interface Advantage {
@@ -30,7 +29,7 @@ export interface Advantage {
   description: string;
 }
 
-export interface Hh {
+export interface Ln {
   _id: string;
   count: number;
   juniorSalary: number;

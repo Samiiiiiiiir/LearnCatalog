@@ -6,6 +6,7 @@
   --color-light: #fff;
   --color-red: #ff4b4b;
   --color-green: #007149;
+  --color-green-alternate: #1dc37e;
   --color-green-light: #aef0b9;
 
   // Transition
@@ -13,6 +14,7 @@
 
   // Shadow
   --box-shadow: 0 0.25rem 0.25rem 0 rgb(0 0 0 / 5%);
+  --box-shadow-hover: 0 0 6px 0 rgb(0 0 0 / 40%);
 
   // Border
   --border: 0.0625rem solid #ebebeb;

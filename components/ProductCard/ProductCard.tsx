@@ -18,6 +18,7 @@ import { formatReviewCount } from '@/helpers';
 import { IProductItem } from '@/types';
 
 import styles from './productCard.module.scss';
+import Link from 'next/link';
 
 interface ProductCardProps extends IProductItem {
   ref: Ref<HTMLElement>;
@@ -65,15 +66,21 @@ export const ProductCard = motion((props: ProductCardProps) => {
       <Card className={styles.card}>
         <div className={styles.header}>
           <div className={styles.headerPreview}>
-            <Image
-              className={styles.logo}
-              src={props.image}
-              alt={props.title}
-              width={70}
-              height={70}
-            />
+            <Link className={styles.logoLink} href={props.link} target="_blank">
+              <Image
+                className={styles.logo}
+                src={props.image}
+                alt={props.title}
+                width={70}
+                height={70}
+              />
+            </Link>
             <div className={styles.titleBlock}>
-              <Heading type="h2">{props.title}</Heading>
+              <Heading className={styles.title} type="h2">
+                <Link href={props.link} target="_blank">
+                  {props.title}
+                </Link>
+              </Heading>
               <div className={styles.categories}>
                 {props.categories.map((c) => (
                   <Tag key={c}>{c}</Tag>

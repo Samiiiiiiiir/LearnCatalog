@@ -77,6 +77,12 @@
   gap: 0.125rem;
 }
 
+.title {
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
 .priceBlock,
 .creditBlock,
 .ratingBlock {
@@ -105,8 +111,19 @@
   gap: 0.25rem;
 }
 
+.logoLink {
+  max-width: 4.375rem;
+  max-height: 4.375rem;
+}
+
 .logo {
+  transition-duration: var(--transition-duration);
+
   border-radius: 0.3125rem;
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
 }
 
 /* body */
@@ -150,7 +167,7 @@
 .advantagesBlock {
   padding-left: 0.875rem;
 
-  border-left: 0.1875rem solid var(--color-green-light);
+  border-left: 0.1875rem solid var(--color-green-alternate);
 
   @media screen and (width <= 640px) {
     padding-left: 0.625rem;

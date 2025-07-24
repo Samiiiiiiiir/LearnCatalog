@@ -51,10 +51,10 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
 
   const onSubmit = async (formData: IFormInputs) => {
     try {
-      const { data } = await axios.post<IReviewResponse>(
-        API.review.createDemo,
-        { ...formData, productId },
-      );
+      const { data } = await axios.post<IReviewResponse>(API.review.create, {
+        ...formData,
+        productId,
+      });
 
       if (data.message) {
         setFormStatus(IFormStatus.SUCCESS);
@@ -75,6 +75,10 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               placeholder="Your name"
               {...register('name', {
                 required: { value: true, message: 'Name is required' },
+                pattern: {
+                  value: /\S/,
+                  message: 'Name is required',
+                },
               })}
             />
             {errors.name && (
@@ -90,6 +94,10 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               {...register('title', {
                 required: {
                   value: true,
+                  message: 'Title is required',
+                },
+                pattern: {
+                  value: /\S/,
                   message: 'Title is required',
                 },
               })}
@@ -131,6 +139,10 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
               {...register('description', {
                 required: {
                   value: true,
+                  message: 'Description is required',
+                },
+                pattern: {
+                  value: /\S/,
                   message: 'Description is required',
                 },
               })}

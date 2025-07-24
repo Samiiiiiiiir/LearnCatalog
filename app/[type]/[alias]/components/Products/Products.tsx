@@ -23,22 +23,26 @@ export const Products = ({ title, items }: ProductsProps) => {
   };
 
   return (
-    <Section>
-      <div className={styles.title}>
-        <Heading type="h1">{title}</Heading>
-        <Tag aria-label={`${state.products.length} elements`} color="gray">
-          {state.products.length}
-        </Tag>
-        <Sort type={state.sort} setType={setType} />
-      </div>
+    <>
+      {state.products.length > 0 && (
+        <Section>
+          <div className={styles.title}>
+            <Heading type="h1">{title}</Heading>
+            <Tag aria-label={`${state.products.length} elements`} color="gray">
+              {state.products.length}
+            </Tag>
+            <Sort type={state.sort} setType={setType} />
+          </div>
 
-      <ul className={styles.list}>
-        {state.products.map((p) => (
-          <li key={p._id}>
-            <ProductCard layout {...p} />
-          </li>
-        ))}
-      </ul>
-    </Section>
+          <ul className={styles.list}>
+            {state.products.map((p) => (
+              <li key={p._id}>
+                <ProductCard layout {...p} />
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+    </>
   );
 };

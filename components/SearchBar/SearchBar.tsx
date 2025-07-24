@@ -1,6 +1,6 @@
 'use client';
 
-import { KeyboardEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@/components';
 
@@ -12,31 +12,26 @@ export const SearchBar = () => {
   const [search, setSearch] = useState('');
   const router = useRouter();
 
-  const navigateToSearch = () => {
+  const navigateToSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     const params = new URLSearchParams({ value: search });
     router.push(`/search?${params.toString()}`);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      navigateToSearch();
-    }
-  };
-
   return (
-    <form className={styles.searchBar} role="search">
+    <form
+      className={styles.searchBar}
+      role="search"
+      onSubmit={navigateToSearch}
+    >
       <Input
         className={styles.input}
         placeholder="Search..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        onKeyDown={handleKeyDown}
       />
-      <Button
-        aria-label="Search the site"
-        className={styles.button}
-        onClick={navigateToSearch}
-      >
+      <Button aria-label="Search the site" className={styles.button}>
         <SearchIcon className={styles.icon} />
       </Button>
     </form>

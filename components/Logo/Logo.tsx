@@ -7,9 +7,9 @@ export const Logo = () => {
   return (
     <Link href={'/'} className={styles.logo}>
       <Image
-        src="https://i.ibb.co/s9HVL7YH/logo.png"
-        width={140}
-        height={63}
+        src="https://i.ibb.co/xSN82Z4n/newlogo.png"
+        width={160}
+        height={56}
         alt="logo"
       />
     </Link>

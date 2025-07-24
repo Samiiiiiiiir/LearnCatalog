@@ -35,7 +35,10 @@ export const Menu = ({ data }: MenuProps) => {
             isOpen: !i.isOpen,
           };
         }
-        return i;
+        return {
+          ...i,
+          isOpen: false,
+        };
       }),
     );
     setSecondLevelMenus(newMenus);

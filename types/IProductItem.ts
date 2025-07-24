@@ -11,7 +11,6 @@ export interface IProductItem {
   characteristics: ProductCharacteristic[];
   createdAt: Date;
   updatedAt: Date;
-  __v: number;
   image: string;
   initialRating: number;
   reviews: IReview[];
