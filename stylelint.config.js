@@ -1,9 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: [
-    'stylelint-config-standard-scss',
-    'stylelint-order-config-standard',
-  ],
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-clean-order'],
   plugins: ['stylelint-order'],
   rules: {
     'declaration-block-no-redundant-longhand-properties': [
