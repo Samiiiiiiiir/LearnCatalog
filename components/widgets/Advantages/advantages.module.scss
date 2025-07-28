@@ -1,0 +1,33 @@
+.list {
+  display: grid;
+  gap: 2.25rem;
+
+  @media screen and (width <= 1024px) {
+    gap: 1.5rem;
+  }
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 2.125rem;
+
+  @media screen and (width <= 1024px) {
+    column-gap: 1.25rem;
+  }
+}
+
+.title {
+  align-self: center;
+}
+
+.line {
+  justify-self: center;
+
+  width: 0.0625rem;
+  height: 100%;
+  padding-block: 0.375rem;
+
+  background-color: #d2d2d2;
+  background-clip: content-box;
+}

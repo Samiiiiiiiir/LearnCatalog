@@ -1,0 +1,38 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1;
+  width: 3.625rem;
+  border: none;
+  border-radius: 0.875rem;
+
+  box-shadow: var(--box-shadow);
+
+  transition-duration: var(--transition-duration);
+
+  @media screen and (width <= 768px) {
+    width: 3.125rem;
+    border-radius: 0.625rem;
+  }
+}
+
+.primary {
+  background-color: var(--color-primary);
+
+  svg {
+    fill: var(--color-light);
+  }
+}
+
+.secondary {
+  background-color: var(--color-light);
+
+  svg {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
+}

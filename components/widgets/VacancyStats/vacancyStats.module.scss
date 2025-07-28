@@ -1,0 +1,64 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 16.25rem 1fr;
+  gap: 1.875rem;
+
+  @media screen and (width <= 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.levelsWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  > div:not(:last-child) {
+    border-bottom: var(--border);
+  }
+
+  @media screen and (width >= 900px) {
+    grid-template-columns: repeat(3, 1fr);
+
+    > div:not(:last-child) {
+      border-right: var(--border);
+      border-bottom: none;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 9.375rem;
+  padding-block: 1.25rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.vacanciesCount {
+  font-size: 2.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.salary {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.rate {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+
+.filled {
+  fill: #fc836d;
+}

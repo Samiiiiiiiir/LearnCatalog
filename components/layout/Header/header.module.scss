@@ -1,0 +1,40 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-items: center start;
+}
+
+.burger {
+  width: 2.625rem !important;
+}
+
+.mobileMenu {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+  height: 100svh;
+
+  background-color: var(--color-secondary);
+  box-shadow: var(--box-shadow);
+}
+
+.close {
+  position: absolute;
+  top: 1.8125rem;
+  right: 1rem;
+
+  width: 2.625rem !important;
+
+  stroke-width: 3;
+
+  @media screen and (width <= 640px) {
+    right: 0.75rem;
+  }
+}

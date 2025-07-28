@@ -20,17 +20,14 @@
   --border: 0.0625rem solid #ebebeb;
 }
 
-html {
-  scrollbar-gutter: stable;
-}
-
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden auto;
 
   max-width: 100vw;
 
   color: var(--color-dark);
+
   background-color: var(--color-secondary);
 }
 
@@ -41,9 +38,8 @@ body {
 }
 
 a {
-  text-decoration: none;
-
   color: inherit;
+  text-decoration: none;
 }
 
 ul {
@@ -60,15 +56,15 @@ textarea {
   position: absolute;
 
   overflow: hidden;
-  clip: rect(0 0 0 0);
 
   width: 1px;
   height: 1px;
   margin: -1px;
   padding: 0;
+  border: 0;
 
   white-space: nowrap;
 
-  border: 0;
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
 }

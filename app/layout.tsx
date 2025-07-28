@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
-import { ScrollToTopButton } from '@/components';
+import { MainLayout, ScrollToTopButton } from '@/components';
 import { FirstLevelCategoryId, getMenu } from '@/helpers';
-import { Footer, Header, Sidebar } from './components';
-
-import styles from './layout.module.scss';
 
 import './globals.scss';
 
@@ -28,12 +25,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={notoSans.className}>
       <body>
-        <div className={styles.layout}>
-          <Header data={[data]} className={styles.header} />
-          <Sidebar data={[data]} className={styles.sidebar} />
-          <main className={styles.main}>{children}</main>
-          <Footer className={styles.footer} />
-        </div>
+        <MainLayout data={data}>{children}</MainLayout>
         <ScrollToTopButton />
       </body>
     </html>

@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem 3.75rem;
+  justify-content: space-between;
+
+  padding: 1rem 0.625rem;
+
+  font-size: 0.875rem;
+  color: var(--color-light);
+
+  background-color: var(--color-primary);
+
+  @media screen and (width >= 768px) {
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.inner {
+  display: flex;
+  column-gap: 1.875rem;
+}
+
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
