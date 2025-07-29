@@ -1,5 +1,5 @@
-import React from 'react';
+import { NotFound } from '@/components';
 
-export default function NotFound() {
-  return <div>404 - Page Not Found</div>;
+export default function NotFoundPage() {
+  return <NotFound />;
 }

@@ -25,3 +25,4 @@ export * from './ui/Heading/Heading';
 export * from './ui/SearchBar/SearchBar';
 export * from './ui/ScrollToTopButton/ScrollToTopButton';
 export * from './ui/ButtonIcon/ButtonIcon';
+export * from './ui/NotFound/NotFound';
