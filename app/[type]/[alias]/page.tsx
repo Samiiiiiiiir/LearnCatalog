@@ -1,6 +1,6 @@
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
-import { Advantages, Section, Tag, VacancyStats } from '@/components';
+import { Advantages, Section, VacancyStats } from '@/components';
 import {
   firstLevelCategories,
   getMenu,
@@ -38,7 +38,7 @@ export default async function Catalog({ params }: CatalogProps) {
 
   return (
     <div>
-      <Products title={title} items={products} />
+      <Products title={title} items={products} tags={tags} />
       <Section title={`Jobs - ${category}`}>
         {ln && (
           <VacancyStats
@@ -55,15 +55,6 @@ export default async function Catalog({ params }: CatalogProps) {
           {seoText && <div className={styles.seoText}>{parse(seoText)}</div>}
         </Section>
       )}
-      <Section title="Skills acquired">
-        <div className={styles.skills}>
-          {tags.map((t) => (
-            <Tag key={t} color="primary">
-              {t}
-            </Tag>
-          ))}
-        </div>
-      </Section>
     </div>
   );
 }

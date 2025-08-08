@@ -10,9 +10,10 @@ import styles from './products.module.scss';
 interface ProductsProps {
   title: string;
   items: IProductItem[];
+  tags: string[];
 }
 
-export const Products = ({ title, items }: ProductsProps) => {
+export const Products = ({ title, items, tags }: ProductsProps) => {
   const [state, dispatch] = useReducer(SortReducer, {
     sort: null,
     products: items,
@@ -27,11 +28,24 @@ export const Products = ({ title, items }: ProductsProps) => {
       {state.products.length > 0 && (
         <Section>
           <div className={styles.title}>
-            <Heading type="h1">{title}</Heading>
-            <Tag aria-label={`${state.products.length} elements`} color="gray">
-              {state.products.length}
-            </Tag>
-            <Sort type={state.sort} setType={setType} />
+            <div className={styles.titleInner}>
+              <Heading type="h1">{title}</Heading>
+              <Tag
+                aria-label={`${state.products.length} elements`}
+                color="gray"
+              >
+                {state.products.length}
+              </Tag>
+              <Sort type={state.sort} setType={setType} />
+            </div>
+
+            <div className={styles.skills}>
+              {tags.map((t) => (
+                <Tag key={t} color="primary">
+                  {t}
+                </Tag>
+              ))}
+            </div>
           </div>
 
           <ul className={styles.list}>
