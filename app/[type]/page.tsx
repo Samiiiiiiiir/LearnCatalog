@@ -16,7 +16,7 @@ export default async function Type({ params }: TypeProps) {
 
   const category = firstLevelCategories.find((c) => c.route == type);
 
-  if (!category) {
+  if (!category || category.route === 'books') {
     notFound();
   }
 
