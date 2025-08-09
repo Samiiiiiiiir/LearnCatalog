@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { Banner } from '@/components';
+import { Banner, NewCourses } from '@/components';
 import { firstLevelCategories } from '@/helpers';
-import { BannerImg } from '@/assets';
 
 interface TypeProps {
   params: Promise<{ type: string }>;
@@ -24,12 +23,13 @@ export default async function Type({ params }: TypeProps) {
   return (
     <>
       <Banner
-        bgImage={BannerImg.src}
+        bgImage="https://www.american.edu/spa/data-science/images/Data-Science-Institute_banner.jpg"
         linkText="Try it now"
-        linkHref={`/${type}/nextjs`}
+        linkHref={`/${type}/data-science`}
         text="Build powerful, data-driven solutions - practical, up-to-date tutorials to advance your Data Science career."
         heading="Master tomorrow's skills today"
       />
+      <NewCourses />
     </>
   );
 }

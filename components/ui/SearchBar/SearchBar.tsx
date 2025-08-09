@@ -16,6 +16,8 @@ export const SearchBar = () => {
 
     const params = new URLSearchParams({ value: search });
     router.push(`/search?${params.toString()}`);
+
+    setSearch('');
   };
 
   return (

@@ -1,5 +1,3 @@
-import BannerImg from './banner.webp';
-
 import YoutubeIcon from './icons/socials/youtube-logo.svg';
 import LinkedinIcon from './icons/socials/linkedin.svg';
 import InstagramIcon from './icons/socials/instagram.svg';
@@ -19,9 +17,9 @@ import UpIcon from './icons/up.svg';
 import StarIcon from './icons/star.svg';
 import NotFoundIcon from './icons/404.svg';
 import ArrowIcon from './icons/arrow.svg';
+import SliderArrowIcon from './icons/slider-arrow.svg';
 
 export {
-  BannerImg,
   YoutubeIcon,
   LinkedinIcon,
   InstagramIcon,
@@ -40,4 +38,5 @@ export {
   StarIcon,
   NotFoundIcon,
   ArrowIcon,
+  SliderArrowIcon,
 };

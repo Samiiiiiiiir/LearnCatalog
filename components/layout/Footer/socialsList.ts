@@ -1,3 +1,4 @@
+import { FC, SVGProps } from 'react';
 import {
   YoutubeIcon,
   LinkedinIcon,
@@ -6,7 +7,15 @@ import {
   FacebookIcon,
 } from '@/assets';
 
-export const socialsList = [
+interface ISocial {
+  label: string;
+  href: string;
+  Icon: FC<SVGProps<SVGElement>>;
+}
+
+type IsocialsList = ISocial[];
+
+export const socialsList: IsocialsList = [
   {
     label: 'linkedin',
     href: 'https://www.linkedin.com/',

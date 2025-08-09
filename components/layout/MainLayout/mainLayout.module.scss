@@ -48,7 +48,7 @@
 .header {
   padding-inline: 1rem;
 
-  @media screen and (width <= 640px) {
+  @media screen and (width <= 768px) {
     padding-inline: 0.75rem;
   }
 }

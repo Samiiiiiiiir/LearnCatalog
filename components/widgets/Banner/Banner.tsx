@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Paragraph, Heading } from '@/components';
+import { Paragraph, Heading, Section } from '@/components';
 
 import styles from './banner.module.scss';
 
@@ -19,19 +19,21 @@ export const Banner = ({
   bgImage,
 }: BannerProps) => {
   return (
-    <div
-      className={styles.banner}
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      <div className={styles.contentBlock}>
-        <Heading type="h1">{heading}</Heading>
-        <Paragraph className={styles.text} size="md">
-          {text}
-        </Paragraph>
-        <Link href={linkHref} className={styles.button}>
-          {linkText}
-        </Link>
+    <Section>
+      <div
+        className={styles.banner}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <div className={styles.contentBlock}>
+          <Heading type="h1">{heading}</Heading>
+          <Paragraph className={styles.text} size="md">
+            {text}
+          </Paragraph>
+          <Link href={linkHref} className={styles.button}>
+            {linkText}
+          </Link>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 };

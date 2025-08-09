@@ -1,7 +1,9 @@
 .button {
   position: fixed;
+  z-index: 999;
   right: 2.25rem;
   bottom: 2.25rem;
+
   opacity: 0.8;
 
   &:hover {
