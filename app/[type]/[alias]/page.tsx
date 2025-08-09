@@ -23,7 +23,7 @@ export async function generateMetadata({
   const pageData = await getPageData(alias);
 
   return {
-    title: pageData.metaTitle,
+    title: `${pageData.metaTitle} | LearnCatalog`,
     description: pageData.metaDescription,
   };
 }

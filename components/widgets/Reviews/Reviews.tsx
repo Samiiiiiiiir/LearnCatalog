@@ -2,7 +2,7 @@ import React from 'react';
 import { Paragraph, Rating } from '@/components';
 import { IReview } from '@/types';
 
-import UserIcon from './user.svg';
+import { UserIcon } from '@/assets';
 
 import styles from './reviews.module.scss';
 

@@ -1,8 +1,7 @@
 'use client';
 
 import { Heading, Paragraph } from '@/components';
-
-import NotFoundIcon from './404.svg';
+import { NotFoundIcon } from '@/assets';
 
 import styles from './notFound.module.scss';
 import Link from 'next/link';

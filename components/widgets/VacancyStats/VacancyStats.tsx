@@ -1,6 +1,5 @@
 import { Card, FormattedPrice } from '@/components';
-
-import RateIcon from './Rate.svg';
+import { RateIcon } from '@/assets';
 
 import styles from './vacancyStats.module.scss';
 

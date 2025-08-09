@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import CoursesIcon from './icons/courses.svg';
-import BooksIcon from './icons/books.svg';
+import { CoursesIcon, BooksIcon } from '@/assets';
 
 export enum FirstLevelCategoryId {
   Courses,

@@ -2,8 +2,7 @@
 
 import clsx from 'clsx';
 import { ISortType } from '@/types';
-
-import SortIcon from './sort.svg';
+import { SortIcon } from '@/assets';
 
 import styles from './sort.module.scss';
 

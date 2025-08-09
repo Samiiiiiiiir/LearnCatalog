@@ -1,7 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 import clsx from 'clsx';
-
-import ArrowIcon from './arrow.svg';
+import { ArrowIcon } from '@/assets';
 
 import styles from './button.module.scss';
 

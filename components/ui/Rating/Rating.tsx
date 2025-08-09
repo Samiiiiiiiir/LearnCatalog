@@ -10,8 +10,7 @@ import {
   useState,
 } from 'react';
 import clsx from 'clsx';
-
-import StarIcon from './star.svg';
+import { StarIcon } from '@/assets';
 
 import styles from './rating.module.scss';
 

@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { ButtonIcon } from '@/components';
-import UpIcon from './up.svg';
+import { UpIcon } from '@/assets';
+
 import styles from './scrollToTopButton.module.scss';
 
 export const ScrollToTopButton = () => {

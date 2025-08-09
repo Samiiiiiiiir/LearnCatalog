@@ -1,7 +1,6 @@
 import { Paragraph, Heading } from '@/components';
 import { Advantage } from '@/types';
-
-import CheckIcon from './check.svg';
+import { CheckIcon } from '@/assets';
 
 import styles from './advantages.module.scss';
 

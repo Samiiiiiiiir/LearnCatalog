@@ -15,6 +15,8 @@
   font-weight: 500;
   color: #6c7077;
 
+  opacity: 0.9;
+
   transition-duration: var(--transition-duration);
 
   svg {
@@ -25,6 +27,7 @@
 
   &:hover {
     color: var(--color-primary);
+    opacity: 1;
 
     svg {
       fill: var(--color-primary);

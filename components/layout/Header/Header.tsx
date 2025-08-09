@@ -8,8 +8,7 @@ import { useParams } from 'next/navigation';
 import { IMenuItem } from '@/types';
 import { Sidebar } from '../Sidebar/Sidebar';
 
-import BurgerIcon from './burger.svg';
-import CloseIcon from '@/helpers/icons/close.svg';
+import { CloseIcon, BurgerIcon } from '@/assets';
 
 import styles from './header.module.scss';
 

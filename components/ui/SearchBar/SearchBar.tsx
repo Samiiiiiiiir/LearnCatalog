@@ -3,8 +3,7 @@
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@/components';
-
-import SearchIcon from './search.svg';
+import { SearchIcon } from '@/assets';
 
 import styles from './searchBar.module.scss';
 

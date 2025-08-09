@@ -14,8 +14,7 @@ import {
 } from '@/components';
 import { API } from '@/helpers';
 import { IFormInputs, IFormStatus, IReviewResponse } from '@/types';
-
-import CloseIcon from '@/helpers/icons/close.svg';
+import { CloseIcon } from '@/assets';
 
 import styles from './reviewForm.module.scss';
 

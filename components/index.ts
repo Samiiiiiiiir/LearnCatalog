@@ -1,15 +1,3 @@
-export * from './layout/Footer/Footer';
-export * from './layout/Header/Header';
-export * from './layout/Sidebar/Sidebar';
-export * from './layout/MainLayout/MainLayout';
-/*  */
-export * from './widgets/VacancyStats/VacancyStats';
-export * from './widgets/Advantages/Advantages';
-export * from './widgets/ProductCard/ProductCard';
-export * from './widgets/Reviews/Reviews';
-export * from './widgets/ReviewForm/ReviewForm';
-export * from './widgets/Menu/Menu';
-/*  */
 export * from './ui/Textarea/Textarea';
 export * from './ui/Sort/Sort';
 export * from './ui/Input/Input';
@@ -26,3 +14,16 @@ export * from './ui/SearchBar/SearchBar';
 export * from './ui/ScrollToTopButton/ScrollToTopButton';
 export * from './ui/ButtonIcon/ButtonIcon';
 export * from './ui/NotFound/NotFound';
+/*  */
+export * from './widgets/VacancyStats/VacancyStats';
+export * from './widgets/Advantages/Advantages';
+export * from './widgets/ProductCard/ProductCard';
+export * from './widgets/Reviews/Reviews';
+export * from './widgets/ReviewForm/ReviewForm';
+export * from './widgets/Menu/Menu';
+export * from './widgets/Banner/Banner';
+/*  */
+export * from './layout/Footer/Footer';
+export * from './layout/Header/Header';
+export * from './layout/Sidebar/Sidebar';
+export * from './layout/MainLayout/MainLayout';
