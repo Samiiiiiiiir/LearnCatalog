@@ -1,12 +1,16 @@
 import { IProductItem, ISortType } from '@/types';
 
 type SortActions = { type: ISortType };
+
 interface SortReducerState {
   sort: ISortType | null;
   products: IProductItem[];
 }
 
-export function SortReducer(state: SortReducerState, action: SortActions) {
+export function SortReducer(
+  state: SortReducerState,
+  action: SortActions,
+): SortReducerState {
   switch (action.type) {
     case ISortType.RATING:
       return {

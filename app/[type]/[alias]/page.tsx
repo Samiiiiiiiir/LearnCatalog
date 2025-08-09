@@ -1,13 +1,12 @@
 import parse from 'html-react-parser';
 import { Metadata } from 'next';
-import { Advantages, Section, VacancyStats } from '@/components';
+import { Advantages, ProductList, Section, VacancyStats } from '@/components';
 import {
   firstLevelCategories,
   getMenu,
   getPageData,
   getProducts,
 } from '@/helpers';
-import { Products } from './components/Products/Products';
 
 import styles from './page.module.scss';
 
@@ -38,7 +37,7 @@ export default async function Catalog({ params }: CatalogProps) {
 
   return (
     <div>
-      <Products title={title} items={products} tags={tags} />
+      <ProductList title={title} items={products} tags={tags} />
       <Section title={`Jobs - ${category}`}>
         {ln && (
           <VacancyStats

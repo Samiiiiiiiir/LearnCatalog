@@ -4,7 +4,7 @@
   overflow: hidden;
 
   max-width: 100%;
-  min-height: 360px;
+  min-height: 22.5rem;
   border-radius: 0.5rem;
 
   background-repeat: no-repeat;
@@ -12,11 +12,11 @@
   background-size: cover;
 
   @media screen and (width <= 1440px) {
-    min-height: 320px;
+    min-height: 20rem;
   }
 
   @media screen and (width <= 768px) {
-    min-height: 240px;
+    min-height: 15rem;
   }
 }
 
@@ -29,10 +29,10 @@
 
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 8px;
+  gap: 0.5rem;
 
   width: 33.78%; /* 400/1184 */
-  min-width: 340px;
+  min-width: 21.25rem;
   height: 70%;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -41,13 +41,13 @@
   box-shadow: var(--box-shadow);
 
   @media screen and (width <= 1440px) {
-    min-width: 300px;
+    min-width: 18.75rem;
     height: 88%;
   }
 
   @media screen and (width <= 768px) {
     grid-template-rows: 1fr auto;
-    min-width: 252px;
+    min-width: 15.75rem;
     height: 75%;
   }
 }

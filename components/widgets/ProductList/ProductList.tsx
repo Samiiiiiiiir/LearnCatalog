@@ -5,7 +5,7 @@ import { Heading, ProductCard, Section, Sort, Tag } from '@/components';
 import { IProductItem, ISortType } from '@/types';
 import { SortReducer } from './sort.reducer';
 
-import styles from './products.module.scss';
+import styles from './productList.module.scss';
 
 interface ProductsProps {
   title: string;
@@ -13,7 +13,7 @@ interface ProductsProps {
   tags: string[];
 }
 
-export const Products = ({ title, items, tags }: ProductsProps) => {
+export const ProductList = ({ title, items, tags }: ProductsProps) => {
   const [state, dispatch] = useReducer(SortReducer, {
     sort: null,
     products: items,

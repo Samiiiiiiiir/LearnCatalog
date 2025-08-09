@@ -11,9 +11,9 @@ export * from './ui/Button/Button';
 export * from './ui/Section/Section';
 export * from './ui/Heading/Heading';
 export * from './ui/SearchBar/SearchBar';
-export * from './ui/ScrollToTopButton/ScrollToTopButton';
 export * from './ui/ButtonIcon/ButtonIcon';
 export * from './ui/NotFound/NotFound';
+export * from './ui/ScrollToTopButton/ScrollToTopButton';
 /*  */
 export * from './widgets/VacancyStats/VacancyStats';
 export * from './widgets/Advantages/Advantages';
@@ -23,6 +23,7 @@ export * from './widgets/ReviewForm/ReviewForm';
 export * from './widgets/Menu/Menu';
 export * from './widgets/Banner/Banner';
 export * from './widgets/NewCourses/NewCourses';
+export * from './widgets/ProductList/ProductList';
 /*  */
 export * from './layout/Footer/Footer';
 export * from './layout/Header/Header';

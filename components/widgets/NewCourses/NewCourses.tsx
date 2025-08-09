@@ -86,7 +86,7 @@ export const NewCourses = () => {
               </div>
               <Link className={styles.slideLink} href={href}>
                 Try it now!
-                <div className={styles.sliderArrow}>
+                <div className={styles.slideArrow}>
                   <SliderArrowIcon />
                 </div>
               </Link>

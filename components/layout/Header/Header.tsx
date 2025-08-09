@@ -20,6 +20,7 @@ interface HeaderProps
 const sidebarVariants = {
   closed: {
     left: '-100%',
+    overflow: 'hidden',
   },
   opened: {
     left: 0,
@@ -27,20 +28,32 @@ const sidebarVariants = {
 };
 
 export const Header = ({ data, className, ...props }: HeaderProps) => {
-  const [isMenuClosed, setIsMenuClosed] = useState(false);
+  const [isMenuOpened, setisMenuOpened] = useState(false);
   const { alias } = useParams();
 
   useEffect(() => {
     if (alias) {
-      setIsMenuClosed(false);
+      setisMenuOpened(false);
     }
   }, [alias]);
+
+  useEffect(() => {
+    if (isMenuOpened) {
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      document.documentElement.style.overflow = '';
+    };
+  }, [isMenuOpened]);
 
   return (
     <header className={clsx(styles.header, className)} {...props}>
       <Logo />
       <ButtonIcon
-        onClick={() => setIsMenuClosed(true)}
+        onClick={() => setisMenuOpened(true)}
         className={styles.burger}
         Icon={BurgerIcon}
         appearance="secondary"
@@ -49,12 +62,12 @@ export const Header = ({ data, className, ...props }: HeaderProps) => {
       <motion.div
         variants={sidebarVariants}
         initial="closed"
-        animate={isMenuClosed ? 'opened' : 'closed'}
+        animate={isMenuOpened ? 'opened' : 'closed'}
         className={styles.mobileMenu}
       >
         <Sidebar className={styles.mobileList} data={data} />
         <ButtonIcon
-          onClick={() => setIsMenuClosed(false)}
+          onClick={() => setisMenuOpened(false)}
           className={styles.close}
           appearance="secondary"
           Icon={CloseIcon}
