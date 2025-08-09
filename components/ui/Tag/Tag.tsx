@@ -1,5 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import styles from './tag.module.scss';
 
@@ -37,9 +38,9 @@ export const Tag = ({
       {...props}
     >
       {href ? (
-        <a href={href} target="_blank">
+        <Link href={href} target="_blank">
           {children}
-        </a>
+        </Link>
       ) : (
         <>{children}</>
       )}

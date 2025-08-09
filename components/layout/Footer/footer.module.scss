@@ -1,23 +1,44 @@
 .footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.875rem 3.75rem;
-  justify-content: space-between;
+  display: grid;
+  margin-top: 10rem;
+}
 
-  padding: 1rem 0.625rem;
+.contacts {
+  display: grid;
+  gap: 20px;
 
-  font-size: 0.875rem;
+  padding: 28px;
+  border-radius: 8px;
+
   color: var(--color-light);
 
   background-color: var(--color-primary);
+}
 
-  @media screen and (width >= 768px) {
-    padding: 1.25rem 2rem;
-    font-size: 1rem;
+.contactBlock {
+  display: grid;
+  justify-self: start;
+
+  span {
+    font-size: 1.25rem;
+  }
+
+  a {
+    font-size: 1.875rem;
   }
 }
 
-.inner {
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.125rem 3.125rem;
+
+  font-size: 0.875rem;
+}
+
+.privacy {
   display: flex;
   column-gap: 1.875rem;
 }
@@ -25,5 +46,30 @@
 .link {
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.logoSocials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.brand {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socialsItem {
+  transition-duration: var(--transition-duration);
+
+  &:hover {
+    opacity: 0.9;
   }
 }
