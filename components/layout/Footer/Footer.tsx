@@ -38,7 +38,7 @@ export const Footer = ({ className, ...props }: FooterProps) => {
                 target="_blank"
                 aria-label={label}
               >
-                <Icon width={48} height={48} />
+                <Icon className={styles.socialsIcon} />
               </Link>
             ))}
           </div>
