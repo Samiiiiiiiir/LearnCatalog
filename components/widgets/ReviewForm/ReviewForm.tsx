@@ -176,7 +176,7 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
           <Heading type="h3">{isSuccess ? 'Thank you!' : 'Ooops!'}</Heading>
           <Paragraph>
             {isSuccess
-              ? 'Your review has been successfully submitted. We appreciate your feedback.'
+              ? 'Your review has been successfully submitted and will appear after it passes moderation. We appreciate your feedback.'
               : 'Something went wrong. Please try again.'}
           </Paragraph>
           <Button

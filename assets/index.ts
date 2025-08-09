@@ -18,6 +18,7 @@ import StarIcon from './icons/star.svg';
 import NotFoundIcon from './icons/404.svg';
 import ArrowIcon from './icons/arrow.svg';
 import SliderArrowIcon from './icons/slider-arrow.svg';
+import InfinityIcon from './icons/infinity.svg';
 
 export {
   YoutubeIcon,
@@ -39,4 +40,5 @@ export {
   NotFoundIcon,
   ArrowIcon,
   SliderArrowIcon,
+  InfinityIcon,
 };

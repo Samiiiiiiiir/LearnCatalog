@@ -1,6 +1,10 @@
 .footer {
   display: grid;
   margin-top: 10rem;
+
+  @media screen and (width <= 768px) {
+    margin-top: 8rem;
+  }
 }
 
 .contacts {

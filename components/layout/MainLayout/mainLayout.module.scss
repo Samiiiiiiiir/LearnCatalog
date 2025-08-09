@@ -20,7 +20,7 @@
 
 .layout .header {
   grid-area: header;
-  padding-block: 1rem;
+  padding-block: 0.75rem;
 
   @media screen and (width > 768px) {
     display: none;
@@ -39,8 +39,8 @@
   grid-area: main;
   padding-top: 1.875rem;
 
-  @media screen and (width <= 640px) {
-    padding-top: 1.375rem;
+  @media screen and (width <= 768px) {
+    padding-top: calc(1.875rem + 5.875rem);
   }
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Paragraph, Rating } from '@/components';
 import { IReview } from '@/types';
 

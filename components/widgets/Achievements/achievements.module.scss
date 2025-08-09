@@ -1,0 +1,39 @@
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1.5rem;
+
+  padding: 3rem 1rem;
+
+  font-size: 1.125rem;
+  text-align: center;
+
+  @media screen and (width <= 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (width <= 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.achievementItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.number {
+  margin-bottom: 4px;
+  font-size: 44px;
+  font-weight: 600;
+}
+
+.infinity {
+  svg {
+    path {
+      fill: var(--color-primary);
+    }
+  }
+}

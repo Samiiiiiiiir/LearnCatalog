@@ -1,7 +1,15 @@
 .header {
+  position: fixed;
+  z-index: 3;
+
   display: grid;
   grid-template-columns: 1fr auto;
   place-items: center start;
+
+  width: 100%;
+
+  background-color: var(--color-light);
+  box-shadow: var(--box-shadow);
 }
 
 .burger {
@@ -30,8 +38,8 @@
 
 .close {
   position: absolute;
-  top: 1.8125rem;
-  right: 1rem;
+  top: 1.3125rem;
+  right: 12px;
 
   width: 2.625rem !important;
 
