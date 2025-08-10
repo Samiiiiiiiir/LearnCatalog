@@ -30,11 +30,7 @@ export const AboutUs = () => {
           >
             All Courses
           </Link>
-          <Link
-            className={clsx(styles.link, styles.aboutLink)}
-            href="#"
-            target="_blank"
-          >
+          <Link className={clsx(styles.link, styles.aboutLink)} href="#">
             About Us
           </Link>
         </div>
