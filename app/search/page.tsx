@@ -15,7 +15,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   try {
     const { data } = await axios.get<ISearchedResponse>(`${API.byValue.find}`, {
-      params: { value, offset: '10' },
+      params: { value, offset: 0 },
     });
 
     courses = data.results;

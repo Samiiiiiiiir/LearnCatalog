@@ -18,6 +18,10 @@ export const SearchBar = ({ setisMenuOpened }: SearchBarProps) => {
   const navigateToSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!search.trim()) {
+      return;
+    }
+
     const params = new URLSearchParams({ value: search.trim() });
     router.push(`/search?${params.toString()}`);
 

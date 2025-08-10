@@ -19,7 +19,10 @@ export const SearchedProducts = ({
       {data.length > 0 ? (
         <>
           <Heading className={styles.title} type="h1">
-            Found Courses <span>{total ? `(${total})` : ''}</span> :
+            Found Courses matching{' '}
+            <span className={styles.value}>&quot;{value}&quot;</span>{' '}
+            <span className={styles.total}>{total ? `(${total})` : ''}</span>
+            {':'}
           </Heading>
           <ul className={styles.products}>
             {data.map((i) => (
@@ -32,8 +35,8 @@ export const SearchedProducts = ({
       ) : (
         <Heading type="h1">
           No courses found for{' '}
-          <span className={styles.value}>&quot;{value}&quot;</span>. Try another
-          search?
+          <span className={styles.notFoundValue}>&quot;{value}&quot;</span>. Try
+          another search?
         </Heading>
       )}
     </Section>

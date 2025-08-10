@@ -32,7 +32,7 @@ export const AboutUs = () => {
           </Link>
           <Link
             className={clsx(styles.link, styles.aboutLink)}
-            href="/"
+            href="#"
             target="_blank"
           >
             About Us

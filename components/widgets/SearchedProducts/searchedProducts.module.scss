@@ -1,9 +1,13 @@
 .title {
   margin-bottom: 1.25rem;
+}
 
-  span {
-    text-decoration: underline;
-  }
+.value {
+  text-decoration: underline;
+}
+
+.total {
+  color: var(--color-primary);
 }
 
 .products {
@@ -11,7 +15,7 @@
   gap: 1.25rem;
 }
 
-.value {
+.notFoundValue {
   font-weight: 600;
   color: var(--color-red);
   text-decoration: underline;
