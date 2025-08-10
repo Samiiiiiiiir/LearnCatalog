@@ -1,20 +1,38 @@
-'use client';
+import axios from 'axios';
+import { SearchedProducts } from '@/components';
+import { API } from '@/helpers';
+import { ISearchedProducts, ISearchedResponse } from '@/types';
 
-import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: { value: string };
+}) {
+  const { value } = await searchParams;
 
-function Search() {
-  const searchParams = useSearchParams();
+  let courses: ISearchedProducts = [],
+    totalCourses = 0;
 
-  const value = searchParams.get('value');
+  try {
+    const { data } = await axios.get<ISearchedResponse>(`${API.byValue.find}`, {
+      params: { value, offset: '10' },
+    });
 
-  return <div>Value - {value ? value : ''}</div>;
-}
+    courses = data.results;
+    totalCourses = data.total;
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      console.error(e.message);
+    } else {
+      console.error('Unknown error', e);
+    }
 
-export default function SearchPage() {
+    courses = [];
+  }
+
   return (
-    <Suspense>
-      <Search />
-    </Suspense>
+    <>
+      <SearchedProducts value={value} data={courses} total={totalCourses} />
+    </>
   );
 }

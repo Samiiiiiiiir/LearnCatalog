@@ -6,3 +6,5 @@ export * from './ITopPage';
 export * from './IFormInputs';
 export * from './IFormStatus';
 export * from './IReviewResponse';
+export * from './ISearchedProducts';
+export * from './ISearchedResponse';

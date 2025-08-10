@@ -2,9 +2,9 @@
 
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { ButtonIcon, Logo } from '@/components';
 import { motion } from 'framer-motion';
 import { useParams } from 'next/navigation';
+import { ButtonIcon, Logo } from '@/components';
 import { IMenuItem } from '@/types';
 import { Sidebar } from '../Sidebar/Sidebar';
 
@@ -63,7 +63,11 @@ export const Header = ({ data, className, ...props }: HeaderProps) => {
         animate={isMenuOpened ? 'opened' : 'closed'}
         className={styles.mobileMenu}
       >
-        <Sidebar className={styles.mobileList} data={data} />
+        <Sidebar
+          setisMenuOpened={setisMenuOpened}
+          className={styles.mobileList}
+          data={data}
+        />
         <ButtonIcon
           onClick={() => setisMenuOpened(false)}
           className={styles.close}

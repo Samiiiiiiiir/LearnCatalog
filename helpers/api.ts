@@ -9,4 +9,7 @@ export const API = {
   review: {
     create: process.env.NEXT_PUBLIC_DOMAIN + '/api/review/create',
   },
+  byValue: {
+    find: process.env.NEXT_PUBLIC_DOMAIN + '/api/search',
+  },
 };

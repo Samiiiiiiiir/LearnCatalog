@@ -1,0 +1,18 @@
+.title {
+  margin-bottom: 1.25rem;
+
+  span {
+    text-decoration: underline;
+  }
+}
+
+.products {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.value {
+  font-weight: 600;
+  color: var(--color-red);
+  text-decoration: underline;
+}
