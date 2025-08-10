@@ -8,7 +8,7 @@ import { SearchIcon } from '@/assets';
 import styles from './searchBar.module.scss';
 
 interface SearchBarProps {
-  setisMenuOpened: Dispatch<SetStateAction<boolean>>;
+  setisMenuOpened?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const SearchBar = ({ setisMenuOpened }: SearchBarProps) => {

@@ -3,11 +3,11 @@ import { SearchedProducts } from '@/components';
 import { API } from '@/helpers';
 import { ISearchedProducts, ISearchedResponse } from '@/types';
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: { value: string };
-}) {
+interface SearchPageProps {
+  searchParams: Promise<Record<string, string>>;
+}
+
+export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { value } = await searchParams;
 
   let courses: ISearchedProducts = [],

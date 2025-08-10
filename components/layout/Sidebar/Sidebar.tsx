@@ -16,7 +16,7 @@ import styles from './sidebar.module.scss';
 interface SidebarProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   data: IMenuItem[][];
-  setisMenuOpened: Dispatch<SetStateAction<boolean>>;
+  setisMenuOpened?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Sidebar = ({
