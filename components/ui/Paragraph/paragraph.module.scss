@@ -11,4 +11,8 @@
 .lg {
   font-size: 1.125rem;
   line-height: 1.6;
+
+  @media screen and (width <=768px) {
+    font-size: 1rem;
+  }
 }

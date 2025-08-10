@@ -49,4 +49,20 @@ export const coursesData: ICoursesData = [
     bgColor: '#FFF5E6',
     href: '/courses/machine-learning',
   },
+  {
+    title: 'Human Resources Management',
+    description:
+      'Learn the principles of effective human resources management, including recruitment, employee engagement, and organizational development.',
+    tags: ['management', 'HR', 'business'],
+    bgColor: '#E6F0FF',
+    href: '/courses/human-management',
+  },
+  {
+    title: 'Node.js Essentials for Backend Development',
+    description:
+      'Master the fundamentals of Node.js, build scalable backend applications, and integrate APIs for full-stack development.',
+    tags: ['programming', 'Node.js', 'backend'],
+    bgColor: '#E6FFFA',
+    href: '/courses/nodejs',
+  },
 ];

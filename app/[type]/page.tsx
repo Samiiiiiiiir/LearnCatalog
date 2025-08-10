@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { Achievements, Banner, NewCourses } from '@/components';
+import { Banner, NewCourses } from '@/components';
 import { firstLevelCategories } from '@/helpers';
 
 interface TypeProps {
@@ -30,7 +30,6 @@ export default async function Type({ params }: TypeProps) {
         heading="Master tomorrow's skills today"
       />
       <NewCourses />
-      <Achievements />
     </>
   );
 }

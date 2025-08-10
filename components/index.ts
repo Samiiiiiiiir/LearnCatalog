@@ -25,6 +25,8 @@ export * from './widgets/Banner/Banner';
 export * from './widgets/NewCourses/NewCourses';
 export * from './widgets/ProductList/ProductList';
 export * from './widgets/Achievements/Achievements';
+export * from './widgets/AboutUs/AboutUs';
+export * from './widgets/Partner/Partner';
 /*  */
 export * from './layout/Footer/Footer';
 export * from './layout/Header/Header';

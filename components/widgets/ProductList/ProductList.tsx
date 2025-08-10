@@ -1,7 +1,14 @@
 'use client';
 
 import { useReducer } from 'react';
-import { Heading, ProductCard, Section, Sort, Tag } from '@/components';
+import {
+  Heading,
+  Paragraph,
+  ProductCard,
+  Section,
+  Sort,
+  Tag,
+} from '@/components';
 import { IProductItem, ISortType } from '@/types';
 import { SortReducer } from './sort.reducer';
 
@@ -25,7 +32,7 @@ export const ProductList = ({ title, items, tags }: ProductsProps) => {
 
   return (
     <>
-      {state.products.length > 0 && (
+      {state.products.length > 0 ? (
         <Section>
           <div className={styles.title}>
             <div className={styles.titleInner}>
@@ -55,6 +62,16 @@ export const ProductList = ({ title, items, tags }: ProductsProps) => {
               </li>
             ))}
           </ul>
+        </Section>
+      ) : (
+        <Section>
+          <Heading type="h2" style={{ marginBottom: '1rem' }}>
+            No courses available in this category yet
+          </Heading>
+          <Paragraph>
+            We’re constantly updating our catalog and will add new courses here
+            soon.
+          </Paragraph>
         </Section>
       )}
     </>

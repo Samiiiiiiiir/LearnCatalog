@@ -1,7 +1,11 @@
+import { AboutUs, Achievements, Partner } from '@/components';
+
 export default function Home() {
   return (
     <>
-      <p>This page is coming soon.</p>
+      <AboutUs />
+      <Achievements />
+      <Partner />
     </>
   );
 }

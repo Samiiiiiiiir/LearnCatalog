@@ -18,6 +18,10 @@
 
   background-color: var(--color-primary);
 
+  @media screen and (width <= 1516px) {
+    border-radius: 0;
+  }
+
   @media screen and (width <= 768px) {
     padding: 1rem;
   }

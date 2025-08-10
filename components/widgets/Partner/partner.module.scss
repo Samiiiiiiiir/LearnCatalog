@@ -1,0 +1,38 @@
+.partner {
+  display: grid;
+  gap: 1.5rem;
+
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+
+  color: var(--color-light);
+
+  background-image: linear-gradient(
+    90deg,
+    #0e68e6 0%,
+    #547be0 60%,
+    #8a9eff 100%
+  );
+
+  @media screen and (width <= 1280px) {
+    padding-block: 34px;
+  }
+
+  @media screen and (width <= 768px) {
+    padding: 1.875rem 1.125rem;
+  }
+}
+
+.text {
+  display: grid;
+  gap: 0.875rem;
+  max-width: 66%;
+
+  a {
+    text-decoration: underline;
+  }
+
+  @media screen and (width <= 1280px) {
+    max-width: 100%;
+  }
+}

@@ -29,13 +29,11 @@ const sidebarVariants = {
 
 export const Header = ({ data, className, ...props }: HeaderProps) => {
   const [isMenuOpened, setisMenuOpened] = useState(false);
-  const { alias } = useParams();
+  const { type, alias } = useParams();
 
   useEffect(() => {
-    if (alias) {
-      setisMenuOpened(false);
-    }
-  }, [alias]);
+    setisMenuOpened(false);
+  }, [alias, type]);
 
   useEffect(() => {
     if (isMenuOpened) {
