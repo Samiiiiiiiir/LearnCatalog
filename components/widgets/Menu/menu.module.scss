@@ -1,6 +1,6 @@
 .firstLevelWrapper {
   display: grid;
-  gap: 1.25rem;
+  gap: 20px;
   padding-top: 0.625rem;
 }
 
@@ -44,13 +44,9 @@
 }
 
 .secondLevelWrapper {
-  display: none;
-  gap: 0.625rem;
-
-  margin-top: 0.75rem;
-  margin-left: 0.75rem;
-  padding-top: 0.375rem;
-  padding-left: 2rem;
+  display: block;
+  margin-left: 12px;
+  padding-left: 32px;
   border-left: 0.0625rem solid #dfdfdf;
 
   li:last-child {
@@ -58,10 +54,6 @@
       margin-bottom: 0;
     }
   }
-}
-
-.secondLevelWrapperShow {
-  display: grid;
 }
 
 .secondLevelItem {

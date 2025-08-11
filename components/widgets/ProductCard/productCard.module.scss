@@ -80,6 +80,8 @@
 }
 
 .title {
+  justify-self: start;
+
   &:hover {
     color: var(--color-primary);
   }

@@ -28,6 +28,7 @@ export * from './widgets/Achievements/Achievements';
 export * from './widgets/AboutUs/AboutUs';
 export * from './widgets/Partner/Partner';
 export * from './widgets/SearchedProducts/SearchedProducts';
+export * from './widgets/SeoText/SeoText';
 /*  */
 export * from './layout/Footer/Footer';
 export * from './layout/Header/Header';

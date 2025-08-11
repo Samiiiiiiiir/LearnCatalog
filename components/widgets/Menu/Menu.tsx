@@ -71,12 +71,11 @@ export const Menu = ({ data }: MenuProps) => {
             </Link>
             <motion.ul
               layout
-              className={clsx(styles.secondLevelWrapper, {
-                [styles.secondLevelWrapperShow]: type == route,
-              })}
+              className={styles.secondLevelWrapper}
               initial={type == route ? 'opened' : 'closed'}
               animate={type == route ? 'opened' : 'closed'}
               variants={secondLevelVariants}
+              inert={type !== route}
             >
               {secondLevelMenus[id] &&
                 secondLevelMenus[id].map((item) => {
