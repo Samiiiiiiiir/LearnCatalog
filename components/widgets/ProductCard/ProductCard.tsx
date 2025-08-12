@@ -19,6 +19,7 @@ import { IProductItem } from '@/types';
 
 import styles from './productCard.module.scss';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 interface ProductCardProps extends IProductItem {
   ref: Ref<HTMLElement>;
@@ -121,7 +122,12 @@ export const ProductCard = motion((props: ProductCardProps) => {
         </div>
         <div className={styles.body}>
           <Paragraph>{props.description}</Paragraph>
-          <div className={styles.details}>
+          <div
+            className={clsx(
+              styles.details,
+              !props.advantages && styles.detailsExpanded,
+            )}
+          >
             <div>
               <dl className={styles.features}>
                 {props.characteristics.map((c) => (

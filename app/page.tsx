@@ -1,6 +1,6 @@
 import { AboutUs, Achievements, Partner } from '@/components';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <AboutUs />

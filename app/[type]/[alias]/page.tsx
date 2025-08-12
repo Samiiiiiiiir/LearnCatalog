@@ -24,7 +24,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Catalog({ params }: CatalogProps) {
+export default async function CatalogPage({ params }: CatalogProps) {
   const { alias } = await params;
 
   const pageData = await getPageData(alias);

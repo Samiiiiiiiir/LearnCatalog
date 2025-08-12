@@ -1,6 +1,6 @@
 .header {
   position: fixed;
-  z-index: 4;
+  z-index: 5;
 
   overflow-y: auto;
   display: grid;
@@ -19,7 +19,7 @@
 
 .mobileMenu {
   position: fixed;
-  z-index: 4;
+  z-index: 5;
   top: 0;
 
   overflow: scroll !important;

@@ -1,8 +1,9 @@
 .card,
 .reviewBlock {
+  max-width: 100%;
   padding: 1.875rem 1.875rem 1.25rem;
 
-  @media screen and (width <= 1024px) {
+  @media screen and (width <= 1440px) {
     padding: 1rem;
   }
 
@@ -157,6 +158,10 @@
   }
 }
 
+.detailsExpanded {
+  grid-template-columns: 1fr;
+}
+
 .summary {
   display: grid;
   gap: 1.375rem;
@@ -189,6 +194,10 @@
   align-items: center;
 
   margin-bottom: 1rem;
+
+  @media screen and (width <= 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .feature {
@@ -198,6 +207,7 @@
 
   font-weight: 700;
   color: #3b434e;
+  text-wrap: nowrap;
 
   &::after {
     content: '';
@@ -205,8 +215,13 @@
     flex-grow: 1;
 
     width: 100%;
+    min-width: 0.625rem;
     height: 0.0625rem;
     border-bottom: 0.0625rem dashed #c4c4c4;
+  }
+
+  @media screen and (width <= 1024px) {
+    text-wrap: wrap;
   }
 }
 

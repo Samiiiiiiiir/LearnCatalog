@@ -13,8 +13,12 @@
     grid-template-areas:
       '. sidebar main .'
       '. footer footer .';
-    grid-template-columns: auto 18.75rem minmax(auto, 76rem) auto;
+    grid-template-columns: auto 16.25rem minmax(auto, 76rem) auto;
     grid-template-rows: 1fr auto;
+  }
+
+  @media screen and (width > 1440px) {
+    grid-template-columns: auto 18.75rem minmax(auto, 76rem) auto;
   }
 }
 

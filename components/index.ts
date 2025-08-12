@@ -14,6 +14,7 @@ export * from './ui/SearchBar/SearchBar';
 export * from './ui/ButtonIcon/ButtonIcon';
 export * from './ui/NotFound/NotFound';
 export * from './ui/ScrollToTopButton/ScrollToTopButton';
+export * from './ui/Loading/Loading';
 /*  */
 export * from './widgets/VacancyStats/VacancyStats';
 export * from './widgets/Advantages/Advantages';

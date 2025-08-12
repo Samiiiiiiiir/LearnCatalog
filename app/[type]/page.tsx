@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Online course catalog | LearnCatalog',
 };
 
-export default async function Type({ params }: TypeProps) {
+export default async function TypePage({ params }: TypeProps) {
   const { type } = await params;
 
   const category = firstLevelCategories.find((c) => c.route == type);
