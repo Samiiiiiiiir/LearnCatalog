@@ -37,10 +37,15 @@
 
 .firstLevelItemActive {
   color: var(--color-primary);
+  transition-duration: var(--transition-duration);
 
   svg {
     fill: var(--color-primary);
   }
+}
+
+.firstLevelItemActiveWithAlias {
+  opacity: 0.75;
 }
 
 .secondLevelWrapper {

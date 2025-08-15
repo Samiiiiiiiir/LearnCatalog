@@ -9,13 +9,14 @@ import { Button } from '@/components';
 import { firstLevelCategories } from '@/helpers';
 import { IMenuItem } from '@/types';
 
-import styles from './menu.module.scss';
 import {
   secondLevelVariants,
   secondLevelVariantsChildren,
   thirdLevelVariants,
   thirdLevelVariantsChildren,
 } from './menuVariants';
+
+import styles from './menu.module.scss';
 
 interface MenuProps {
   data: IMenuItem[][];
@@ -64,6 +65,7 @@ export const Menu = ({ data }: MenuProps) => {
               href={`/${route}`}
               className={clsx(styles.firstLevelItem, {
                 [styles.firstLevelItemActive]: type == route,
+                [styles.firstLevelItemActiveWithAlias]: type == route && alias,
               })}
             >
               <Icon />

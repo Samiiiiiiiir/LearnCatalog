@@ -6,7 +6,7 @@ import { firstLevelCategories } from '@/helpers';
 import { getMenu, getPageData, getProducts } from '@/services';
 
 interface CatalogProps {
-  params: Promise<{ alias: string; type: string }>;
+  params: Promise<{ alias: string }>;
 }
 
 export async function generateMetadata({
@@ -14,12 +14,18 @@ export async function generateMetadata({
 }: CatalogProps): Promise<Metadata> {
   const { alias } = await params;
 
-  const pageData = await getPageData(alias);
-
-  return {
-    title: `${pageData.metaTitle} | LearnCatalog`,
-    description: pageData.metaDescription,
-  };
+  try {
+    const pageData = await getPageData(alias);
+    return {
+      title: `${pageData.metaTitle} | LearnCatalog`,
+      description: pageData.metaDescription,
+    };
+  } catch {
+    return {
+      title: 'Page not found | LearnCatalog',
+      description: '',
+    };
+  }
 }
 
 export default async function CatalogPage({ params }: CatalogProps) {
