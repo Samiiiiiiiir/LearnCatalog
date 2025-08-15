@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Fragment, Ref, useRef, useState } from 'react';
+import { Fragment, Ref } from 'react';
 import { motion } from 'framer-motion';
 import {
   Review,
@@ -20,47 +20,22 @@ import { IProductItem } from '@/types';
 import styles from './productCard.module.scss';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { useReviews } from '@/hooks';
+import { reviewsVariants } from './reviewsVariants';
 
 interface ProductCardProps extends IProductItem {
   ref: Ref<HTMLElement>;
 }
 
-const reviewsVariants = {
-  visible: {
-    height: 'auto',
-    visibility: 'visible',
-  },
-  hidden: {
-    height: 0,
-    overflow: 'hidden',
-    visibility: 'hidden',
-  },
-};
-
 export const ProductCard = motion((props: ProductCardProps) => {
-  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
-  const [shouldScroll, setShouldScroll] = useState(false);
-
-  const reviewsRef = useRef<HTMLDivElement>(null);
-
-  const handleReviewClick = () => {
-    if (shouldScroll) {
-      scrollToReviews();
-    } else {
-      setIsReviewsOpen(true);
-      setShouldScroll(true);
-    }
-  };
-
-  const scrollToReviews = () => {
-    if (reviewsRef.current && shouldScroll) {
-      reviewsRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-      reviewsRef.current.focus();
-    }
-  };
+  const {
+    isReviewsOpen,
+    handleReviewClick,
+    setIsReviewsOpen,
+    setShouldScroll,
+    reviewsRef,
+    scrollToReviews,
+  } = useReviews();
 
   return (
     <article ref={props.ref}>

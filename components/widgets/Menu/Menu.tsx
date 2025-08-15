@@ -1,6 +1,6 @@
 'use client';
 
-import { KeyboardEvent, useState } from 'react';
+import { KeyboardEvent } from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -17,44 +17,17 @@ import {
 } from './menuVariants';
 
 import styles from './menu.module.scss';
+import { useMenu } from '@/hooks';
 
 interface MenuProps {
   data: IMenuItem[][];
 }
 
 export const Menu = ({ data }: MenuProps) => {
-  const [secondLevelMenus, setSecondLevelMenus] = useState<IMenuItem[][]>(data);
-
   const { type, alias } = useParams();
 
-  const openSecondLevel = (secondCategory: string) => {
-    const newMenus = secondLevelMenus.map((menu) =>
-      menu.map((i) => {
-        if (i._id.secondCategory === secondCategory) {
-          return {
-            ...i,
-            isOpen: !i.isOpen,
-          };
-        }
-        return {
-          ...i,
-          isOpen: false,
-        };
-      }),
-    );
-    setSecondLevelMenus(newMenus);
-  };
-
-  const openSecondLevelByKeyboard = (
-    e: KeyboardEvent<HTMLButtonElement>,
-    secondCategory: string,
-  ) => {
-    if (e.code == 'Space' || e.key == 'Enter') {
-      e.preventDefault();
-
-      openSecondLevel(secondCategory);
-    }
-  };
+  const { secondLevelMenus, openSecondLevel, openSecondLevelByKeyboard } =
+    useMenu(data);
 
   return (
     <nav>

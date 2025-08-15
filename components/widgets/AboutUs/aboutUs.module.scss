@@ -12,7 +12,6 @@
 .inner {
   display: grid;
   gap: 3.125rem;
-  padding-block: 2.5rem;
 
   p {
     @media screen and (width <= 1280px) {

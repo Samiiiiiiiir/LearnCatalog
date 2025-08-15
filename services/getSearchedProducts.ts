@@ -17,7 +17,7 @@ export const getSearchedProducts = async (
     courses = data.results;
     totalCourses = data.total;
   } catch (e: unknown) {
-    if (e instanceof Error) {
+    if (axios.isAxiosError(e)) {
       console.error(e.message);
     } else {
       console.error('Unknown error', e);

@@ -11,21 +11,12 @@ import { CloseIcon, BurgerIcon } from '@/assets';
 
 import styles from './header.module.scss';
 import { useMobileMenu } from '@/hooks';
+import { sidebarVariants } from './sidebarVariants';
 
 interface HeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   data: IMenuItem[][];
 }
-
-const sidebarVariants = {
-  closed: {
-    left: '-100%',
-    overflow: 'hidden',
-  },
-  opened: {
-    left: 0,
-  },
-};
 
 export const Header = ({ data, className, ...props }: HeaderProps) => {
   const { isMenuOpened, setisMenuOpened } = useMobileMenu();

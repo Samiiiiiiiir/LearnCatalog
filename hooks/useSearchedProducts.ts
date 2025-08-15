@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { ISearchedProducts } from '@/types';
 import { getSearchedProducts } from '@/services';
 
@@ -32,7 +33,7 @@ export const useSearchedProducts = ({
       setCurrentOffset((prev) => prev + 10);
       setCourses((prev) => [...prev, ...fetchedCourses]);
     } catch (e) {
-      if (e instanceof Error) {
+      if (axios.isAxiosError(e)) {
         console.error(e.message);
       } else {
         console.error('Unknown error', e);

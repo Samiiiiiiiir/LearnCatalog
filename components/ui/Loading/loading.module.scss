@@ -7,9 +7,17 @@
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  height: 100vh;
+  background: linear-gradient(135deg, var(--color-secondary, #f0f2f5), #e3e9f0);
 
-  opacity: 0.4;
-  background-color: var(--color-secondary);
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
