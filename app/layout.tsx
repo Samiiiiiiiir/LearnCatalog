@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import { MainLayout, ScrollToTopButton } from '@/components';
-import { FirstLevelCategoryId, getMenu } from '@/helpers';
 
 import './globals.scss';
 
@@ -20,12 +19,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const data = await getMenu(FirstLevelCategoryId.Courses);
-
   return (
     <html lang="en" className={notoSans.className}>
       <body>
-        <MainLayout data={data}>{children}</MainLayout>
+        <MainLayout>{children}</MainLayout>
         <ScrollToTopButton />
       </body>
     </html>

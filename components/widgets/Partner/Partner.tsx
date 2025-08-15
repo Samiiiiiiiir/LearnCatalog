@@ -1,7 +1,7 @@
 import { Heading, Paragraph, Section } from '@/components';
+import Link from 'next/link';
 
 import styles from './partner.module.scss';
-import Link from 'next/link';
 
 export const Partner = () => {
   return (

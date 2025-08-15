@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { formatPrice } from '@/helpers';
 
 interface FormattedPriceProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -6,12 +7,7 @@ interface FormattedPriceProps
 }
 
 export const FormattedPrice = ({ price, ...props }: FormattedPriceProps) => {
-  const formatted = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(price);
+  const formatted = formatPrice(price);
 
   return <div {...props}>{formatted}</div>;
 };

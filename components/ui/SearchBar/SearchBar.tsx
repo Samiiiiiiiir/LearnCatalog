@@ -1,7 +1,7 @@
 'use client';
 
-import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Dispatch, SetStateAction } from 'react';
+import { useNavigateSearch } from '@/hooks';
 import { Button, Input } from '@/components';
 import { SearchIcon } from '@/assets';
 
@@ -12,25 +12,9 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ setisMenuOpened }: SearchBarProps) => {
-  const [search, setSearch] = useState('');
-  const router = useRouter();
-
-  const navigateToSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!search.trim()) {
-      return;
-    }
-
-    const params = new URLSearchParams({ value: search.trim() });
-    router.push(`/search?${params.toString()}`);
-
-    setSearch('');
-
-    if (setisMenuOpened) {
-      setisMenuOpened(false);
-    }
-  };
+  const { search, setSearch, navigateToSearch } = useNavigateSearch({
+    setisMenuOpened,
+  });
 
   return (
     <form

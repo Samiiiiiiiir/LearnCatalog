@@ -1,11 +1,9 @@
+import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import axios from 'axios';
 import { Advantages, ProductList, SeoText, VacancyStats } from '@/components';
-import {
-  firstLevelCategories,
-  getMenu,
-  getPageData,
-  getProducts,
-} from '@/helpers';
+import { firstLevelCategories } from '@/helpers';
+import { getMenu, getPageData, getProducts } from '@/services';
 
 interface CatalogProps {
   params: Promise<{ alias: string; type: string }>;
@@ -27,17 +25,28 @@ export async function generateMetadata({
 export default async function CatalogPage({ params }: CatalogProps) {
   const { alias } = await params;
 
-  const pageData = await getPageData(alias);
-  const { title, category, ln, advantages, seoText, tags } = pageData;
+  let pageData, products;
 
-  const products = await getProducts(category, 10);
+  try {
+    pageData = await getPageData(alias);
+    products = await getProducts(pageData.category, 10);
+  } catch (e) {
+    if (axios.isAxiosError(e)) {
+      console.error(e.message);
+    }
+    notFound();
+  }
 
   return (
     <>
-      <ProductList title={title} items={products} tags={tags} />
-      <VacancyStats ln={ln} category={category} />
-      <Advantages list={advantages} />
-      <SeoText text={seoText} />
+      <ProductList
+        title={pageData.title}
+        items={products}
+        tags={pageData.tags}
+      />
+      <VacancyStats ln={pageData.ln} category={pageData.category} />
+      <Advantages list={pageData.advantages} />
+      <SeoText text={pageData.seoText} />
     </>
   );
 }

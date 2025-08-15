@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API } from './api';
+import { API } from '@/config';
 import { IProductItem } from '@/types';
 
 export const getProducts = async (

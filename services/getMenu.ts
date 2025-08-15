@@ -1,8 +1,7 @@
-import { IMenuItem } from '@/types';
-import { FirstLevelCategoryId } from './firstLevelCategories';
-
 import axios from 'axios';
-import { API } from './api';
+import { IMenuItem } from '@/types';
+import { FirstLevelCategoryId } from '@/helpers';
+import { API } from '@/config';
 
 export const getMenu = async (
   category: FirstLevelCategoryId,

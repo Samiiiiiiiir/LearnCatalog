@@ -1,35 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { ButtonIcon } from '@/components';
 import { UpIcon } from '@/assets';
 
 import styles from './scrollToTopButton.module.scss';
+import { useScrollToTop } from '@/hooks';
 
 export const ScrollToTopButton = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 101) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    }
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const { isScrolled, scrollToTop } = useScrollToTop();
 
   return (
     <ButtonIcon
-      onClick={handleClick}
+      onClick={scrollToTop}
       appearance="primary"
       Icon={UpIcon}
       className={clsx(styles.button, {

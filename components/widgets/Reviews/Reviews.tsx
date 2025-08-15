@@ -1,5 +1,6 @@
 import { Paragraph, Rating } from '@/components';
 import { IReview } from '@/types';
+import { formatDate } from '@/helpers';
 
 import { UserIcon } from '@/assets';
 
@@ -10,14 +11,6 @@ interface ReviewProps {
 }
 
 export const Review = ({ list }: ReviewProps) => {
-  const formatDate = (createdAt: string) => {
-    return new Date(createdAt).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   return (
     <>
       {list && list.length > 0 && (

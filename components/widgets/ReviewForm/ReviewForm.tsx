@@ -1,9 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import axios from 'axios';
 import {
   Button,
   Heading,
@@ -12,8 +10,8 @@ import {
   Rating,
   Textarea,
 } from '@/components';
-import { API } from '@/helpers';
-import { IFormInputs, IFormStatus, IReviewResponse } from '@/types';
+import { useReviewForm } from '@/hooks';
+import { IFormInputs, IFormStatus } from '@/types';
 import { CloseIcon } from '@/assets';
 
 import styles from './reviewForm.module.scss';
@@ -31,42 +29,17 @@ export const ReviewForm = ({ productId }: ReviewFormProps) => {
     formState: { errors, isSubmitting },
     clearErrors,
   } = useForm<IFormInputs>();
-  const [formStatus, setFormStatus] = useState<IFormStatus>(IFormStatus.IDLE);
 
-  const isSuccess = formStatus == IFormStatus.SUCCESS;
-  const isError = formStatus == IFormStatus.ERROR;
-
-  useEffect(() => {
-    if (formStatus == IFormStatus.ERROR || formStatus == IFormStatus.SUCCESS) {
-      const timeout = setTimeout(() => {
-        setFormStatus(IFormStatus.IDLE);
-      }, 20000);
-
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [formStatus]);
-
-  const onSubmit = async (formData: IFormInputs) => {
-    try {
-      const { data } = await axios.post<IReviewResponse>(API.review.create, {
-        ...formData,
-        productId,
-      });
-
-      if (data.message) {
-        setFormStatus(IFormStatus.SUCCESS);
-      }
-    } catch {
-      setFormStatus(IFormStatus.ERROR);
-    }
-    reset();
-  };
+  const { isIdle, isError, isSuccess, onSubmit, setFormStatus } = useReviewForm(
+    {
+      reset,
+      productId,
+    },
+  );
 
   return (
     <>
-      {formStatus == IFormStatus.IDLE && (
+      {isIdle && (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <label className={clsx(styles.label, styles.nameLabel)}>
             <Input

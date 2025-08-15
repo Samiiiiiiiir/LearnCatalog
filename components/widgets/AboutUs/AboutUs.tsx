@@ -1,11 +1,11 @@
 import { Heading, Paragraph, Section } from '@/components';
 
-import styles from './aboutUs.module.scss';
-import Image from 'next/image';
-
-import { AboutUsImg } from '@/assets';
-import Link from 'next/link';
 import clsx from 'clsx';
+import Link from 'next/link';
+import Image from 'next/image';
+import { AboutUsImg } from '@/assets';
+
+import styles from './aboutUs.module.scss';
 
 export const AboutUs = () => {
   return (

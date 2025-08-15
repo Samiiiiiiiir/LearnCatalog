@@ -1,9 +1,8 @@
 'use client';
 
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { useParams } from 'next/navigation';
 import { ButtonIcon, Logo } from '@/components';
 import { IMenuItem } from '@/types';
 import { Sidebar } from '../Sidebar/Sidebar';
@@ -11,6 +10,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import { CloseIcon, BurgerIcon } from '@/assets';
 
 import styles from './header.module.scss';
+import { useMobileMenu } from '@/hooks';
 
 interface HeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
@@ -28,24 +28,7 @@ const sidebarVariants = {
 };
 
 export const Header = ({ data, className, ...props }: HeaderProps) => {
-  const [isMenuOpened, setisMenuOpened] = useState(false);
-  const { type, alias } = useParams();
-
-  useEffect(() => {
-    setisMenuOpened(false);
-  }, [alias, type]);
-
-  useEffect(() => {
-    if (isMenuOpened) {
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.documentElement.style.overflow = '';
-    }
-
-    return () => {
-      document.documentElement.style.overflow = '';
-    };
-  }, [isMenuOpened]);
+  const { isMenuOpened, setisMenuOpened } = useMobileMenu();
 
   return (
     <header className={clsx(styles.header, className)} {...props}>

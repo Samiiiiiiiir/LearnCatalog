@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Section, Heading, ProductCard, Button } from '@/components';
-import { ISearchedProducts, ISearchedResponse } from '@/types';
-import { API } from '@/helpers';
+import { ISearchedProducts } from '@/types';
 
 import styles from './searchedProducts.module.scss';
-import axios from 'axios';
+import { useSearchedProducts } from '@/hooks';
 
 interface SearchedProductsProps {
   data: ISearchedProducts;
@@ -19,37 +17,11 @@ export const SearchedProducts = ({
   value,
   total,
 }: SearchedProductsProps) => {
-  const [courses, setCourses] = useState(data);
-  const [offset, setOffset] = useState(data.length);
-  const [status, setStatus] = useState<'idle' | 'loading'>('idle');
-
-  const handleFetchMoreCourses = async () => {
-    if (offset >= total) return;
-
-    try {
-      setStatus('loading');
-
-      const { data } = await axios.get<ISearchedResponse>(
-        `${API.byValue.find}`,
-        {
-          params: { value, offset },
-        },
-      );
-      setOffset((prev) => prev + 10);
-      setCourses((prev) => [...prev, ...data.results]);
-    } catch (e) {
-      if (e instanceof Error) {
-        console.error(e.message);
-      } else {
-        console.error('Unknown error', e);
-      }
-    }
-    setStatus('idle');
-  };
-
-  useEffect(() => {
-    setCourses(data);
-  }, [data]);
+  const { courses, status, loadMore } = useSearchedProducts({
+    data,
+    offset: data.length,
+    total,
+  });
 
   return (
     <Section>
@@ -72,7 +44,7 @@ export const SearchedProducts = ({
             <Button
               appearance="secondary"
               className={styles.loadButton}
-              onClick={handleFetchMoreCourses}
+              onClick={() => loadMore(value)}
               disabled={status === 'loading'}
             >
               {status === 'idle' ? 'Load more' : 'Loading...'}

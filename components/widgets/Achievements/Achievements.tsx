@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { Card, Heading, Section } from '@/components';
+import { InfinityIcon } from '@/assets';
 
 import styles from './achievements.module.scss';
-import { InfinityIcon } from '@/assets';
 
 export const Achievements = () => {
   return (
