@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
-import { MainLayout, ScrollToTopButton } from '@/components';
+import { ScrollToTopButton } from '@/ui';
+import { MainLayout } from '@/layouts';
 
 import './globals.scss';
 

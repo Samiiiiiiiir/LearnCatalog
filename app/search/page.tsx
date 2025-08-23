@@ -1,4 +1,4 @@
-import { SearchedProducts } from '@/components';
+import { SearchedProducts } from '@/widgets';
 import { getSearchedProducts } from '@/services';
 
 interface SearchPageProps {

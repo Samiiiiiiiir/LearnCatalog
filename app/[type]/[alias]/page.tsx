@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import axios from 'axios';
-import { Advantages, ProductList, SeoText, VacancyStats } from '@/components';
+import { Advantages, ProductList, SeoText, VacancyStats } from '@/widgets';
 import { firstLevelCategories } from '@/helpers';
 import { getMenu, getPageData, getProducts } from '@/services';
 

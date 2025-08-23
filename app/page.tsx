@@ -1,4 +1,4 @@
-import { AboutUs, Achievements, Partner } from '@/components';
+import { AboutUs, Achievements, Partner } from '@/widgets';
 
 export default function HomePage() {
   return (

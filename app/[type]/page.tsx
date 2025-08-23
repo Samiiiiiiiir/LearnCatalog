@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { Banner, NewCourses } from '@/components';
+import { Banner, NewCourses } from '@/widgets';
 import { firstLevelCategories } from '@/helpers';
 
 interface TypeProps {
