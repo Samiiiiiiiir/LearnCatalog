@@ -7,8 +7,8 @@ import {
   SetStateAction,
 } from 'react';
 import clsx from 'clsx';
-import { Logo, SearchBar } from '@/ui';
-import { Menu } from '@/widgets';
+import { Logo } from '@/ui';
+import { Menu, SearchBar } from '@/widgets';
 import { IMenuItem } from '@/types';
 
 import styles from './sidebar.module.scss';

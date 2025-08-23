@@ -12,3 +12,5 @@ export * from './AboutUs/AboutUs';
 export * from './Partner/Partner';
 export * from './SearchedProducts/SearchedProducts';
 export * from './SeoText/SeoText';
+export * from './SearchBar/SearchBar';
+export * from './NotFound/NotFound';

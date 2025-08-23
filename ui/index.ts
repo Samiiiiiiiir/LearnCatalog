@@ -10,8 +10,6 @@ export * from './Paragraph/Paragraph';
 export * from './Button/Button';
 export * from './Section/Section';
 export * from './Heading/Heading';
-export * from './SearchBar/SearchBar';
 export * from './ButtonIcon/ButtonIcon';
-export * from './NotFound/NotFound';
 export * from './ScrollToTopButton/ScrollToTopButton';
 export * from './Loading/Loading';
